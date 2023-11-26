@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:main": "turbo run start --filter main",
-    "start:editor": "turbo run start --filter editor",
-    "start:build": "turbo run build --filter main",
-    "build:editor": "turbo run build --filter editor",
+    "dev": "turbo dev --filter=editor",
+    "start:main": "turbo run start --filter=main",
+    "start:editor": "turbo run start --filter=editor",
+    "start:build": "turbo run build --filter=main",
+    "build:editor": "turbo run build --filter=editor",
     "lint:fix": "turbo lint",
     "lint:format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\""
   },

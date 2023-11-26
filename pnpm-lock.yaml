@@ -97,6 +97,19 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(typescript@5.3.2)(vite@5.0.2)
 
+  apps/editor:
+    dependencies:
+      '@turbo/core':
+        specifier: workspace:^
+        version: link:../../packages/core
+    devDependencies:
+      '@turbo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@turbo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+
   packages/core:
     dependencies:
       react-error-boundary:
