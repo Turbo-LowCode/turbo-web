@@ -1,17 +1,22 @@
+import { useNode } from '@craftjs/core'
 import { Button as AntdButton } from 'antd'
 import { SizeType } from 'antd/es/config-provider/SizeContext'
+import { PropsWithChildren } from 'react'
 
-interface Props {
-  size: SizeType
-  type: 'link' | 'text' | 'default' | 'primary' | 'dashed' | undefined
-  color: string
-  text: string
+interface Props extends PropsWithChildren {
+  size?: SizeType
+  type?: 'link' | 'text' | 'default' | 'primary' | 'dashed' | undefined
+  color?: string
 }
 
-const Button = ({ size, type, color, text }: Props) => {
+const Button = ({ size, type, color, children }: Props) => {
+  const {
+    connectors: { connect, drag },
+  } = useNode()
+
   return (
-    <AntdButton size={size} type={type} color={color}>
-      {text}
+    <AntdButton ref={ref => connect(drag(ref))} size={size} type={type} color={color}>
+      {children}
     </AntdButton>
   )
 }

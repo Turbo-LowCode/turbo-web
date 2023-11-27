@@ -1,3 +1,4 @@
+import { useNode } from '@craftjs/core'
 import { PropsWithChildren } from 'react'
 
 interface Props extends PropsWithChildren {
@@ -6,8 +7,12 @@ interface Props extends PropsWithChildren {
 }
 
 const Container = ({ background, padding = 0, children }: Props) => {
+  const {
+    connectors: { connect, drag },
+  } = useNode()
+
   return (
-    <div className="my-5" style={{ background, padding: `${padding}px` }}>
+    <div ref={ref => connect(drag(ref))} className="my-5" style={{ background, padding: `${padding}px` }}>
       {children}
     </div>
   )
