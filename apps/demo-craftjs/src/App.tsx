@@ -1,5 +1,6 @@
 import { Editor, Element, Frame } from '@craftjs/core'
 import { Typography } from 'antd'
+import { useEffect, useState } from 'react'
 import Button from './components/materials/Button'
 import Card, { CardBottom, CardTop } from './components/materials/Card'
 import Container from './components/materials/Container'
@@ -9,6 +10,14 @@ import Toolbox from './components/materials/Toolbox'
 import TopBar from './components/materials/Topbar'
 
 function App() {
+  const [json, setJSON] = useState('')
+
+  useEffect(() => {
+    const data = localStorage.getItem('data') ?? ''
+    console.log('🚀 ~ file: App.tsx:17 ~ useEffect ~ data:', JSON.parse(JSON.parse(data)))
+    if (data) setJSON(data)
+  }, [])
+
   return (
     <div style={{ margin: '0 auto', width: '800px' }}>
       <Typography.Title level={5} className="text-center">
@@ -19,7 +28,7 @@ function App() {
         <TopBar />
         <div className="flex pt-10 gap-3">
           <div className="flex-1">
-            <Frame>
+            <Frame data={json}>
               <Element canvas is={Container} padding={5} background="#eee">
                 <Card />
                 <Button size="small" type="dashed">

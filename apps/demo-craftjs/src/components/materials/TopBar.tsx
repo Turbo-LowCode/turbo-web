@@ -1,5 +1,5 @@
 import { useEditor } from '@craftjs/core'
-import { Button, Switch, Typography } from 'antd'
+import { Button, Switch, Typography, message } from 'antd'
 
 const TopBar = () => {
   const {
@@ -10,6 +10,11 @@ const TopBar = () => {
     enabled: state.options.enabled,
   }))
 
+  const save = () => {
+    localStorage.setItem('data', JSON.stringify(query.serialize()))
+    message.success('保存成功')
+  }
+
   return (
     <div className="p-1 mt-3 mb-1 bg-[#cbe8e7]">
       <div className="flex justify-between items-center">
@@ -17,9 +22,14 @@ const TopBar = () => {
           <Typography.Text>Enable</Typography.Text>
           <Switch checked={enabled} onChange={val => setOptions(options => (options.enabled = val))} />
         </div>
-        <Button size="middle" type="dashed" color="primary" onClick={() => console.log(query.serialize())}>
-          Serialize JSON
-        </Button>
+        <div>
+          <Button size="middle" type="dashed" color="primary" onClick={() => console.log(query.serialize())}>
+            Serialize JSON
+          </Button>
+          <Button size="middle" type="dashed" color="primary" onClick={save}>
+            Save
+          </Button>
+        </div>
       </div>
     </div>
   )
