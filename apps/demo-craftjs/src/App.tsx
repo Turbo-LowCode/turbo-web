@@ -1,7 +1,7 @@
 import { Editor, Element, Frame } from '@craftjs/core'
 import { Typography } from 'antd'
 import Button from './components/materials/Button'
-import Card from './components/materials/Card'
+import Card, { CardBottom, CardTop } from './components/materials/Card'
 import Container from './components/materials/Container'
 import Text from './components/materials/Text'
 import Toolbox from './components/materials/Toolbox'
@@ -12,20 +12,23 @@ function App() {
       <Typography.Title level={5} className="text-center">
         A super simple page editor
       </Typography.Title>
-      <Editor resolver={{ Card, Button, Text, Container }}>
-        <div className="pt-10 gap-3">
-          <Frame>
-            <Element canvas is={Container} padding={5} background="#eee">
-              <Card />
-              <Button size="small" type="dashed">
-                Click
-              </Button>
-              <Text fontSize={20} text="Hi world!" />
-              <Element canvas is={Container} padding={6} background="#999">
-                <Text fontSize={14} text="It's me again!" />
+      {/* Remember that every User Component must be added to our resolver */}
+      <Editor resolver={{ Card, Button, Text, Container, CardTop, CardBottom }}>
+        <div className="flex pt-10 gap-3">
+          <div className="flex-1">
+            <Frame>
+              <Element canvas is={Container} padding={5} background="#eee">
+                <Card />
+                <Button size="small" type="dashed">
+                  Click
+                </Button>
+                <Text fontSize={20} text="Hi world!" />
+                <Element canvas is={Container} padding={6} background="#999">
+                  <Text fontSize={14} text="It's me again!" />
+                </Element>
               </Element>
-            </Element>
-          </Frame>
+            </Frame>
+          </div>
           <div className="my-5">
             <Toolbox />
           </div>
