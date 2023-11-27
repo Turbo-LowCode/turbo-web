@@ -1,13 +1,13 @@
 import { Editor, Element, Frame } from '@craftjs/core'
 import { Typography } from 'antd'
 import { useEffect, useState } from 'react'
+import SettingPanel from './components/SettingPanel'
+import Toolbox from './components/Toolbox'
+import TopBar from './components/TopBar'
 import Button from './components/materials/Button'
 import Card, { CardBottom, CardTop } from './components/materials/Card'
 import Container from './components/materials/Container'
-import SettingPanel from './components/materials/SettingPanel'
 import Text from './components/materials/Text'
-import Toolbox from './components/materials/Toolbox'
-import TopBar from './components/materials/Topbar'
 
 function App() {
   const [json, setJSON] = useState('')

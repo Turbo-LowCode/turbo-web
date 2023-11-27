@@ -1,14 +1,13 @@
 import { useEditor } from '@craftjs/core'
 import { Button as AntdButton, Typography } from 'antd'
-import Button from './Button'
-import Card from './Card'
-import Container from './Container'
-import Text from './Text'
+import Button from './materials/Button'
+import Card from './materials/Card'
+import Container from './materials/Container'
+import Text from './materials/Text'
 
 const Toolbox = () => {
   const {
     connectors: { create },
-    query,
   } = useEditor()
 
   return (
