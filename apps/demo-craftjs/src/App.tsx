@@ -6,6 +6,7 @@ import Container from './components/materials/Container'
 import SettingPanel from './components/materials/SettingPanel'
 import Text from './components/materials/Text'
 import Toolbox from './components/materials/Toolbox'
+import TopBar from './components/materials/Topbar'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       </Typography.Title>
       {/* Remember that every User Component must be added to our resolver */}
       <Editor resolver={{ Card, Button, Text, Container, CardTop, CardBottom }}>
+        <TopBar />
         <div className="flex pt-10 gap-3">
           <div className="flex-1">
             <Frame>
