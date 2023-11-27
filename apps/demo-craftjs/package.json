@@ -1,0 +1,21 @@
+{
+  "name": "demo-craftjs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "lint:check": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx ./"
+  },
+  "dependencies": {
+    "@turbo/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@turbo/eslint-config": "workspace:*",
+    "@turbo/typescript-config": "workspace:*"
+  }
+}
