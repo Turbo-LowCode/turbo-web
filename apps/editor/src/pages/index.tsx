@@ -1,7 +1,5 @@
 import { Framework } from '@/components/Framework/Framework'
 
-const Editor = () => {
+export const Editor = () => {
   return <Framework />
 }
-
-export default Editor

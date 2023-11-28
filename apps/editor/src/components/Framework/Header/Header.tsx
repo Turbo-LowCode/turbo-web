@@ -1,10 +1,10 @@
 import { Alert, Divider, Typography, theme } from 'antd'
-import ConfigSettings from '../common/settings/ConfigSetting'
+import { ConfigSettings } from '../common/settings/ConfigSetting'
 import { AppMenu } from './AppMenu'
-import Preview from './ToolBar/Preview'
-import Publish from './ToolBar/Publish'
+import { Preview } from './ToolBar/Preview'
+import { Publish } from './ToolBar/Publish'
 
-const Header = () => {
+export const Header = () => {
   const { token } = theme.useToken()
 
   return (
@@ -53,5 +53,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

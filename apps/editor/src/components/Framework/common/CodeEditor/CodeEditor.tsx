@@ -2,7 +2,7 @@ import type { EditorProps, OnChange, OnMount } from '@monaco-editor/react'
 import { Editor as MonacoEditor } from '@monaco-editor/react'
 import { useDebounceFn } from 'ahooks'
 import { Spin } from 'antd'
-import React from 'react'
+import { FC, useState } from 'react'
 
 // 编辑器主题配置
 const EditorThemeObject = {
@@ -126,8 +126,8 @@ const defaultOptions: EditorProps['options'] = {
   autoClosingQuotes: 'languageDefined',
 }
 
-export const CodeEditor: React.FC<EditorProps> = props => {
-  const [theme, setTheme] = React.useState('vs')
+export const CodeEditor: FC<EditorProps> = props => {
+  const [theme, setTheme] = useState('vs')
 
   // 处理代码修改， args需要做一层透传来完善防抖，避免触发重复构建
   const { run: handleChange } = useDebounceFn<OnChange>(

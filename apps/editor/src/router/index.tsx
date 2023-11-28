@@ -1,5 +1,5 @@
-import Editor from '@/pages'
-import Preview from '@/pages/preview'
+import { Editor } from '@/pages'
+import { Preview } from '@/pages/preview'
 import { createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
