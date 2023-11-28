@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@turbo/core": "workspace:^"
+    "@turbo/core": "workspace:*",
+    "@turbo/materials": "workspace:*"
   },
   "devDependencies": {
     "@turbo/eslint-config": "workspace:*",

@@ -39,6 +39,7 @@
     "@turbo/eslint-config": "workspace:*",
     "@turbo/typescript-config": "workspace:*",
     "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.2.0",
