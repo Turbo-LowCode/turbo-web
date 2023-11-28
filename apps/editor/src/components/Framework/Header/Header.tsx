@@ -3,6 +3,7 @@ import { ConfigSettings } from '../common/settings/ConfigSetting'
 import { AppMenu } from './AppMenu'
 import { Preview } from './ToolBar/Preview'
 import { Publish } from './ToolBar/Publish'
+import { ToolBar } from './ToolBar/ToolBar'
 
 export const Header = () => {
   const { token } = theme.useToken()
@@ -26,7 +27,7 @@ export const Header = () => {
         className={`grid grid-cols-3 h-[50px]`}
         style={{
           border: `1px solid ${token.colorBorderSecondary}`,
-          padding: `${token.paddingSM}px`,
+          padding: `${token.paddingXS}px ${token.paddingSM}px`,
         }}
       >
         <div className="flex items-center justify-start gap-2">
@@ -43,8 +44,8 @@ export const Header = () => {
             </Typography.Text>
           </div>
         </div>
-        <div>Tool</div>
-        <div className="flex items-center justify-end gap-6">
+        <ToolBar />
+        <div className="flex items-center justify-end gap-3">
           <ConfigSettings />
           <Preview />
           <Publish />
