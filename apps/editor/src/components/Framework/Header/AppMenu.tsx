@@ -2,7 +2,7 @@ import { TurboRemixIcon } from '@turbo/icons'
 
 export const AppMenu = () => {
   return (
-    <div className="h-[50px] flex justify-center items-center cursor-pointer">
+    <div className="h-full flex justify-center items-center cursor-pointer">
       <TurboRemixIcon
         className="text-xl transition-[color] duration-700 hover:text-[#1677FF]"
         type="icon-apps-2-line"
