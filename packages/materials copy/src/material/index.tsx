@@ -1,6 +1,6 @@
 import { UserComponent, UserComponentConfig, useNode } from '@craftjs/core'
 import { cloneDeep } from 'lodash'
-import { PropsWithChildren, forwardRef, useMemo } from 'react'
+import React, { PropsWithChildren } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
 export type ReactMaterialComponent = UserComponent
@@ -38,7 +38,7 @@ const withConnectNode = (
     } = useNode(state => ({
       custom: state.data.custom,
     }))
-    const memoizedProps = useMemo(() => {
+    const memoizedProps = React.useMemo(() => {
       const data = cloneDeep(props)
       return data
     }, [props])
@@ -73,7 +73,7 @@ export const createReactMaterial = <T=any>(
   defaultProps?: Record<string, any>,
 ) => {
   // hoc的compose函数执行
-  const forwardComponent = forwardRef<(dom: HTMLElement) => void, {}>(component)
+  const forwardComponent = React.forwardRef<(dom: HTMLElement) => void, {}>(component)
   forwardComponent.defaultProps = defaultProps
   const MaterialNode: ReactMaterialComponent = withConnectNode(forwardComponent)
   MaterialNode.craft = config
