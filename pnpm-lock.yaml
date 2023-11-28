@@ -125,8 +125,14 @@ importers:
   apps/editor:
     dependencies:
       '@turbo/core':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/core
+      '@turbo/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@turbo/materials':
+        specifier: workspace:*
+        version: link:../../packages/materials
     devDependencies:
       '@turbo/eslint-config':
         specifier: workspace:*
@@ -183,6 +189,15 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.4
         version: 0.4.4(eslint@8.54.0)
+
+  packages/icons:
+    devDependencies:
+      '@turbo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@turbo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/materials:
     dependencies:

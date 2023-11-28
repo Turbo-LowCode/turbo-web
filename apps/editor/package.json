@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@turbo/core": "workspace:*",
-    "@turbo/materials": "workspace:*"
+    "@turbo/materials": "workspace:*",
+    "@turbo/icons": "workspace:*"
   },
   "devDependencies": {
     "@turbo/eslint-config": "workspace:*",

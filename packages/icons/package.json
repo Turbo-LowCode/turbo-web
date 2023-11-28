@@ -1,0 +1,15 @@
+{
+  "name": "@turbo/icons",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "tsup --watch",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@turbo/eslint-config": "workspace:*",
+    "@turbo/typescript-config": "workspace:*"
+  }
+}
