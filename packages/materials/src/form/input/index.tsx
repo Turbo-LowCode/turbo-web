@@ -1,6 +1,6 @@
-import { createReactMaterial } from '@turbo/core/src/index'
-import InputSettings from './Settings'
-import InputView from './View'
+import { createReactMaterial } from '@turbo/core'
+import InputSettings from './settings'
+import InputView from './view'
 
 const _Input = createReactMaterial(InputView, {
   displayName: 'Input',

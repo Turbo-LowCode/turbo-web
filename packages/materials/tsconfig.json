@@ -1,4 +1,10 @@
 {
   "extends": ["@turbo/typescript-config"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
   "include": ["src"]
 }

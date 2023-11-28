@@ -1,6 +1,6 @@
 import { ProForm, ProFormText } from '@ant-design/pro-components'
 
-const PasswordSettings = () => {
+const NumberSettings = () => {
   return (
     <>
       <ProForm.Group title="属性" collapsible align="start">
@@ -11,4 +11,4 @@ const PasswordSettings = () => {
   )
 }
 
-export default PasswordSettings
+export default NumberSettings

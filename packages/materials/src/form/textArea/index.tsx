@@ -1,6 +1,6 @@
-import { createReactMaterial } from '@turbo/core/src/index'
-import TextAreaSettings from './Settings'
-import TextAreaView from './View'
+import { createReactMaterial } from '@turbo/core'
+import TextAreaSettings from './settings'
+import TextAreaView from './view'
 
 const _TextArea = createReactMaterial(TextAreaView, {
   displayName: 'TextArea',

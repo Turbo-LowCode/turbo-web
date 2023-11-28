@@ -1,12 +1,12 @@
-import { createReactMaterial } from '@turbo/core/src/index'
-import InputPasswordSettings from './Settings'
-import InputPasswordView from './View'
+import { createReactMaterial } from '@turbo/core'
+import PasswordSettings from './settings'
+import PasswordView from './view'
 
-const _InputPassword = createReactMaterial(InputPasswordView, {
-  displayName: 'InputPassword',
+const _Password = createReactMaterial(PasswordView, {
+  displayName: 'Password',
   related: {
-    settings: InputPasswordSettings,
+    settings: PasswordSettings,
   },
 })
 
-export default _InputPassword
+export default _Password

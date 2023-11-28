@@ -110,7 +110,7 @@ importers:
     dependencies:
       '@turbo/core':
         specifier: workspace:^
-        version: link:../../packages/materials copy
+        version: link:../../packages/core
     devDependencies:
       '@turbo/eslint-config':
         specifier: workspace:*
@@ -123,7 +123,7 @@ importers:
     dependencies:
       '@turbo/core':
         specifier: workspace:^
-        version: link:../../packages/materials copy
+        version: link:../../packages/core
     devDependencies:
       '@turbo/eslint-config':
         specifier: workspace:*
@@ -183,22 +183,9 @@ importers:
 
   packages/materials:
     dependencies:
-      react-error-boundary:
-        specifier: ^4.0.11
-        version: 4.0.11(react@18.2.0)
-    devDependencies:
       '@turbo/core':
         specifier: workspace:*
-        version: link:../materials copy
-      '@turbo/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@turbo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-
-  packages/materials copy:
-    dependencies:
+        version: link:../core
       react-error-boundary:
         specifier: ^4.0.11
         version: 4.0.11(react@18.2.0)
