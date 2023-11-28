@@ -1,9 +1,7 @@
 import { UserComponent, UserComponentConfig, useNode } from '@craftjs/core'
-import { forEach } from 'lodash'
-import React from 'react'
+import { cloneDeep } from 'lodash'
+import React, { PropsWithChildren } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ScopeModuleId } from '../utils'
-import { useParseBinding } from './binding'
 
 export type ReactMaterialComponent = UserComponent
 
@@ -17,7 +15,7 @@ export type FunctionComponent<T = any> = React.FC<
   } & T
 >
 
-const fallbackRender = (props: any) => {
+const FallbackRender = (props: any) => {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -27,44 +25,35 @@ const fallbackRender = (props: any) => {
 }
 
 /**
- * 将UI组件和装饰器
+ * 将UI组件包裹成可拖拽的Node节点
  * @param { React.FunctionComponent } WrappedComponent 设计组件
  */
 const withConnectNode = (
-  WrappedComponent: React.ForwardRefExoticComponent<React.RefAttributes<any>>,
+  WrappedComponent: React.ForwardRefExoticComponent<React.RefAttributes<any> & PropsWithChildren>,
 ): ReactMaterialComponent => {
   return function ({ children, __events = [], ...props }: Record<string, any>) {
     const {
       connectors: { connect, drag },
-      id,
       custom,
-    } = useNode(evt => ({
-      custom: evt.data.custom,
+    } = useNode(state => ({
+      custom: state.data.custom,
     }))
-    const memoizedProps = useParseBinding(props, id)
-
-    const eventProps = React.useMemo(() => {
-      let eventMap: Record<string, Function> = {}
-      forEach(__events, item => {
-        if (item.propName && item.eventName) {
-          eventMap[item.propName] = (window as any)?.[ScopeModuleId]['jsMoudle']?.[item.eventName]
-        }
-      })
-      return eventMap
-    }, [__events])
+    const memoizedProps = React.useMemo(() => {
+      const data = cloneDeep(props)
+      return data
+    }, [props])
 
     return (
-      <ErrorBoundary fallbackRender={fallbackRender}>
+      <ErrorBoundary fallbackRender={FallbackRender}>
         <WrappedComponent
           ref={dom => {
             if (custom.useResize) {
-              connect(dom)
+              return connect(dom)
             } else {
-              connect(drag(dom))
+              return connect(drag(dom))
             }
           }}
           {...memoizedProps}
-          {...eventProps}
         >
           {children}
         </WrappedComponent>
@@ -83,7 +72,7 @@ export const createReactMaterial = <T=any>(
   config: Partial<UserComponentConfig<T>>,
   defaultProps?: Record<string, any>,
 ) => {
-  // hoc的compose函数执行，
+  // hoc的compose函数执行
   const forwardComponent = React.forwardRef<(dom: HTMLElement) => void, {}>(component)
   forwardComponent.defaultProps = defaultProps
   const MaterialNode: ReactMaterialComponent = withConnectNode(forwardComponent)
