@@ -12,19 +12,20 @@ export interface RenderNodeWrapperProps {
 export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) => {
   const currentRef = useRef<HTMLDivElement>(null)
   const { id } = useNode()
-  const { query, isActive, isHovered } = useEditor((state, query) => {
+  const { query, isActive, isHover } = useEditor((state, query) => {
     const [selectNodeId] = state.events.selected
     const [hoverNodeId] = state.events.hovered
     const [dragNodeId] = state.events.dragged
     return {
       isActive: query.getEvent('selected').contains(id),
-      isHovered: query.getEvent('hovered').contains(id),
+      isHover: query.getEvent('hovered').contains(id),
       isDragged: query.getEvent('dragged').contains(id),
       selectNodeId,
       hoverNodeId,
       dragNodeId,
     }
   })
+  console.log(id, isActive, isHover)
   const {
     dom,
     name,
@@ -58,13 +59,13 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
   // Hover
   useEffect(() => {
     if (dom && !isRootNode) {
-      if (isHovered && !isActive) {
+      if (isHover && !isActive) {
         dom.classList.add('editor-component-hover')
       } else {
         dom.classList.remove('editor-component-hover')
       }
     }
-  }, [dom, isHovered, isRootNode, isActive])
+  }, [dom, isHover, isRootNode, isActive])
 
   // 定位提示框的位置
   const getPos = useCallback((dom: HTMLElement) => {
@@ -78,7 +79,7 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
 
   return (
     <>
-      {isActive
+      {isHover || isActive
         ? ReactDOM.createPortal(
             // 物料的提示框
             <div
