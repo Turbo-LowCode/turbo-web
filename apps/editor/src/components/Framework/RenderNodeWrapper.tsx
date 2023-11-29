@@ -1,6 +1,7 @@
 import { DragOutlined } from '@ant-design/icons'
 import { useEditor, useNode } from '@craftjs/core'
 import * as React from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import { useFrame } from 'react-frame-component'
 
@@ -9,22 +10,21 @@ export interface RenderNodeWrapperProps {
 }
 
 export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) => {
+  const currentRef = useRef<HTMLDivElement>(null)
   const { id } = useNode()
-  const currentRef = React.useRef<HTMLDivElement>(null)
   const { query, isActive, isHovered } = useEditor((state, query) => {
-    const [selectId] = state.events.selected
-    const [hoverId] = state.events.hovered
-    const [dragged] = state.events.dragged
+    const [selectNodeId] = state.events.selected
+    const [hoverNodeId] = state.events.hovered
+    const [dragNodeId] = state.events.dragged
     return {
       isActive: query.getEvent('selected').contains(id),
       isHovered: query.getEvent('hovered').contains(id),
       isDragged: query.getEvent('dragged').contains(id),
-      selectId,
-      hoverId,
-      dragged,
+      selectNodeId,
+      hoverNodeId,
+      dragNodeId,
     }
   })
-
   const {
     dom,
     name,
@@ -33,19 +33,19 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
     connectors: { drag },
   } = useNode(node => {
     return {
-      isRootNode: query.node(id).isRoot(),
       dom: node.dom,
       parent: node.data.parent,
+      name: node.data.displayName,
+      isRootNode: query.node(id).isRoot(),
       moveable: query.node(node.id).isDraggable(),
       deletable: query.node(node.id).isDeletable(),
-      name: node.data.displayName,
       isResize: node.data.custom.useResize || false,
     }
   })
-
   const { document: canvasDocument } = useFrame()
 
-  React.useEffect(() => {
+  // Click
+  useEffect(() => {
     if (dom) {
       if (isActive) {
         dom.classList.add('editor-component-active')
@@ -55,7 +55,8 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
     }
   }, [dom, isActive])
 
-  React.useEffect(() => {
+  // Hover
+  useEffect(() => {
     if (dom && !isRootNode) {
       if (isHovered && !isActive) {
         dom.classList.add('editor-component-hover')
@@ -65,39 +66,41 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
     }
   }, [dom, isHovered, isRootNode, isActive])
 
-  const getPos = React.useCallback((dom: HTMLElement) => {
+  // 定位提示框的位置
+  const getPos = useCallback((dom: HTMLElement) => {
     const { top, left, bottom } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0 }
     return {
-      top: top > 0 ? top : bottom,
+      top: top > 24 ? top - 24 : bottom,
       left: left,
     }
   }, [])
+  const { top, left } = getPos(dom!)
 
   return (
     <>
-      {isHovered || isActive
+      {isActive
         ? ReactDOM.createPortal(
+            // 物料的提示框
             <div
               ref={currentRef}
-              className="px-2 py-2 text-white bg-primary fixed flex items-center"
               style={{
-                left: dom ? getPos(dom).left : undefined,
-                top: dom ? getPos(dom).top : undefined,
+                left,
+                top,
                 zIndex: 9999,
                 position: 'fixed',
                 background: '#2178ea',
                 width: 'max-content',
-                transform: 'translate(8px, -35px)',
                 display: 'flex',
                 alignItems: 'center',
                 minWidth: 'max-content',
-                height: 30,
+                height: 24,
                 color: '#fff',
                 paddingInline: 6,
+                fontSize: 12,
               }}
             >
               {name}
-              {moveable ? <DragOutlined ref={drag as any} /> : null}
+              {moveable && <DragOutlined ref={drag as any} style={{ marginLeft: 8 }} />}
             </div>,
             canvasDocument?.body as HTMLElement,
           )

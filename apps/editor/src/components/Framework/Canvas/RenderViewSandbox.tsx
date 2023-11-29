@@ -16,6 +16,12 @@ export const RenderViewSandbox: FC<RenderViewSandboxProps> = ({ children }) => {
       head={
         <>
           <style>
+            <link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
+            <link href="https://unpkg.com/antd@5.11.5/dist/reset.css" rel="stylesheet"></link>
+            <link
+              href="https://cdn.jsdelivr.net/npm/primereact@10.0.2/resources/themes/lara-light-indigo/theme.css"
+              rel="stylesheet"
+            />
             {`
             .editor-component-active {
               position: relative;
@@ -54,8 +60,8 @@ export const RenderViewSandbox: FC<RenderViewSandboxProps> = ({ children }) => {
               width: 100%;
               height: 100%;
             }
-
             `}
+            <script src="https://www.unpkg.com/draggable-polyfill@1.2.4/index.js"></script>
           </style>
         </>
       }
