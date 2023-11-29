@@ -1,6 +1,7 @@
 import { SlackCircleFilled } from '@ant-design/icons'
 import { Canvas, useEditor } from '@craftjs/core'
 import { theme } from 'antd'
+import { createStyles } from 'antd-style'
 import { map } from 'lodash'
 import { FC, createElement } from 'react'
 
@@ -8,12 +9,40 @@ export interface MaterialListProps {
   materials: Record<string, any>
 }
 
+const useStyles = createStyles(({ token, css }) => ({
+  materialList: {
+    width: '100%',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: token.paddingSM,
+  },
+  materialListItem: css`
+    border: '1px solid #e4e4e7';
+    padding-inline: ${token.paddingSM};
+    padding-block: 8;
+    border-radius: 8;
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    transition: 'border-color .85s';
+    cursor: 'pointer';
+    gap: 8;
+    font-size: 14;
+    color: ${token.colorTextSecondary};
+    &:hover {
+      color: ${token.colorPrimary};
+      border-color: ${token.colorPrimary};
+    }
+  `,
+}))
+
 export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
   const { token } = theme.useToken()
   const { connectors } = useEditor()
+  const { styles } = useStyles()
 
   return (
-    <div className="gird grid-cols-2 w-full" style={{ gap: token.paddingSM }}>
+    <div className={styles.materialList} style={{ gap: token.paddingSM }}>
       {map(materials, (value, key) => {
         const displayName = value.craft?.displayName
         const { useCanvas = false } = value.craft?.custom ?? {}
@@ -27,12 +56,9 @@ export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
                 connectors.create(ref, useCanvas ? <Canvas canvas is={value} /> : createElement(value))
               }
             }}
-            className={`flex justify-center items-center cursor-pointer gap-2 text-sm py-2 rounded-lg border-[1px_solid_#e4e4e7] hover:text-[${token.colorPrimary}] border-[${token.colorPrimary}]`}
-            style={{
-              paddingInline: `${token.paddingSM}px`,
-            }}
+            className={styles.materialListItem}
           >
-            <SlackCircleFilled />
+            <SlackCircleFilled className="font-bold text-base mr-2" />
             {displayName}
           </div>
         )

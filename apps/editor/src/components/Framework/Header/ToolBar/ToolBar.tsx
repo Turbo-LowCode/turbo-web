@@ -1,11 +1,22 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { useEditor } from '@craftjs/core'
 import { TurboRemixIcon } from '@turbo/icons'
-import { Button, Popconfirm, Tooltip, message, theme } from 'antd'
+import { Button, Popconfirm, Tooltip, message } from 'antd'
+import { createStyles } from 'antd-style'
 import { JSEditor } from './JSEditor'
 
+const useStyles = createStyles(({ token }) => ({
+  ToolBar: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 12,
+    background: token.colorBgBase,
+  },
+}))
+
 export const ToolBar = () => {
-  const { token } = theme.useToken()
+  const { styles } = useStyles()
   const { actions, selectedNodeId, isRootNode } = useEditor(({ events }) => {
     const [currentNodeId] = events.selected
     return {
@@ -25,7 +36,7 @@ export const ToolBar = () => {
   }
 
   return (
-    <div className="flex justify-center icon gap-3" style={{ background: token.colorBgBase }}>
+    <div className={styles.ToolBar}>
       <Tooltip placement="bottom" color="blue" title="撤销">
         <Button icon={<TurboRemixIcon type="icon-arrow-go-back-fill" />} onClick={actions.history.undo} />
       </Tooltip>

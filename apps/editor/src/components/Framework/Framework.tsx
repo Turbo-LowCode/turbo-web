@@ -9,7 +9,7 @@ export const Framework = () => {
     <EditorRootWrapper>
       <div className="grid overflow-hidden h-full grid-rows-[auto_1fr]">
         <Header />
-        <div id="editorContent" className="gird h-full grid-cols-[auto_1fr_300px]">
+        <div id="editorContent" className="h-full grid grid-cols-[auto_1fr_300px]">
           <Left />
           <Canvas />
           <Right />

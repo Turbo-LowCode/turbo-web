@@ -1,12 +1,23 @@
-import { Alert, Divider, Typography, theme } from 'antd'
+import { Alert, Divider, Typography } from 'antd'
+import { createStyles } from 'antd-style'
 import { ConfigSettings } from '../common/settings/ConfigSetting'
 import { AppMenu } from './AppMenu'
 import { Preview } from './ToolBar/Preview'
 import { Publish } from './ToolBar/Publish'
 import { ToolBar } from './ToolBar/ToolBar'
 
+const useStyles = createStyles(({ token }) => ({
+  Header: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr',
+    height: 50,
+    border: `1px solid ${token.colorBorderSecondary}`,
+    padding: `${token.paddingXS}px ${token.paddingSM}px`,
+  },
+}))
+
 export const Header = () => {
-  const { token } = theme.useToken()
+  const { styles } = useStyles()
 
   return (
     <header>
@@ -23,13 +34,7 @@ export const Header = () => {
         }
         closable
       />
-      <div
-        className={`grid grid-cols-3 h-[50px]`}
-        style={{
-          border: `1px solid ${token.colorBorderSecondary}`,
-          padding: `${token.paddingXS}px ${token.paddingSM}px`,
-        }}
-      >
+      <div className={styles.Header}>
         <div className="flex items-center justify-start gap-2">
           <AppMenu />
           <Divider className="m-2 border-[#e5e6eb]" type="vertical" />
