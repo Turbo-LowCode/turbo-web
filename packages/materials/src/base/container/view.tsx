@@ -1,8 +1,8 @@
 import { CanvasRootId, ReactMaterialViewType } from '@turbo/core'
 import { ConfigProvider } from 'antd'
-import { PropsWithChildren } from 'react'
+import { CSSProperties, PropsWithChildren } from 'react'
 
-export const ProviderView: ReactMaterialViewType<React.CSSProperties & PropsWithChildren> = (
+export const ProviderView: ReactMaterialViewType<CSSProperties & PropsWithChildren> = (
   { children, ...props },
   ref: any,
 ) => {

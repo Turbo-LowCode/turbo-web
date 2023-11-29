@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@turbo/core": "workspace:*",
+    "@turbo/icons": "workspace:*",
     "@turbo/materials": "workspace:*",
-    "@turbo/icons": "workspace:*"
+    "react-frame-component": "^5.2.6"
   },
   "devDependencies": {
     "@turbo/eslint-config": "workspace:*",

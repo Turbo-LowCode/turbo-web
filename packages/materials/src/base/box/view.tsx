@@ -1,8 +1,8 @@
 import { useEditor, useNode } from '@craftjs/core'
 import { ReactMaterialViewType } from '@turbo/core'
 import { useThrottleFn } from 'ahooks'
-import { Resizable } from 're-resizable'
-import React from 'react'
+import { Resizable, ResizableProps } from 're-resizable'
+import React, { PropsWithChildren } from 'react'
 
 const initialStyle: React.CSSProperties = {
   height: 12,
@@ -13,7 +13,10 @@ const initialStyle: React.CSSProperties = {
   zIndex: 2,
 }
 
-export const BoxView: ReactMaterialViewType<any> = ({ children, ...styledProps }, ref: any) => {
+export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> = (
+  { children, ...props },
+  ref: any,
+) => {
   const { id } = useNode()
 
   const {
@@ -49,7 +52,7 @@ export const BoxView: ReactMaterialViewType<any> = ({ children, ...styledProps }
           : false
       }
       bounds="parent"
-      {...styledProps}
+      {...props}
       onResizeStop={handleResizableChange}
       handleStyles={{
         bottom: {
@@ -58,7 +61,6 @@ export const BoxView: ReactMaterialViewType<any> = ({ children, ...styledProps }
           left: '50%',
           transform: 'translateX(-50%)',
         },
-
         right: {
           ...initialStyle,
           right: -6,
