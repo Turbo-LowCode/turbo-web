@@ -21,7 +21,7 @@ export const Settings = () => {
   const {
     nodeId,
     props,
-    settingRender,
+    SettingRender,
     actions: { setProp },
   } = useEditor(state => {
     const [currentNodeId] = state.events.selected
@@ -32,7 +32,7 @@ export const Settings = () => {
       return {
         nodeId: currentNodeId,
         props: data.props,
-        settingRender: related.settingRender,
+        SettingRender: related.settingRender,
       }
     }
   })
@@ -48,7 +48,7 @@ export const Settings = () => {
 
   useEffect(() => {
     if (nodeId) {
-      console.log('currentNodeId', nodeId, props)
+      console.log('currentNodeId', nodeId, props, SettingRender)
 
       // 切换组件清除setter配置，并设置新组件内容属性配置
       form.resetFields()
@@ -66,8 +66,8 @@ export const Settings = () => {
         onValuesChange={handleFormChange}
         onFinish={handleFormChange}
       >
-        {settingRender ? (
-          <settingRender />
+        {SettingRender ? (
+          <SettingRender />
         ) : (
           <Card size="small">
             <Typography.Text type="secondary">暂无选中组件，点击画布中的组件可以进行选择。</Typography.Text>
