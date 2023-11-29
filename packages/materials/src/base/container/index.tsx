@@ -1,14 +1,14 @@
-import { createReactMaterial } from '@huos/core'
 import { ProviderView } from './view'
-import { Panel } from './panel'
+import { ProviderPanel } from './panel'
+import { createReactMaterial } from '@turbo/core'
 
 export const __Provider__ = createReactMaterial(ProviderView, {
   displayName: 'Provider',
   custom: {
     useCanvas: true,
-    useResize: false
+    useResize: false,
   },
   related: {
-    settingRender: Panel
-  }
+    settingRender: ProviderPanel,
+  },
 })
