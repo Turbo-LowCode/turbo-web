@@ -1,5 +1,6 @@
-import { DragOutlined } from '@ant-design/icons'
+import { ArrowUpOutlined, DeleteOutlined, DragOutlined } from '@ant-design/icons'
 import { useEditor, useNode } from '@craftjs/core'
+import { Typography } from 'antd'
 import * as React from 'react'
 import { useCallback, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom'
@@ -12,7 +13,7 @@ export interface RenderNodeWrapperProps {
 export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) => {
   const currentRef = useRef<HTMLDivElement>(null)
   const { id } = useNode()
-  const { query, isActive, isHover } = useEditor((state, query) => {
+  const { query, isActive, isHover, actions } = useEditor((state, query) => {
     const [selectNodeId] = state.events.selected
     const [hoverNodeId] = state.events.hovered
     const [dragNodeId] = state.events.dragged
@@ -27,6 +28,7 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
   })
   const {
     dom,
+    parent,
     name,
     isRootNode,
     moveable,
@@ -43,6 +45,25 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
     }
   })
   const { document: canvasDocument } = useFrame()
+
+  // 定位提示框的位置
+  const getPos = useCallback((dom: HTMLElement) => {
+    const { top, left, bottom } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0 }
+    return {
+      top: top > 24 ? top - 24 : bottom,
+      left: left,
+    }
+  }, [])
+
+  const handleToParent = useCallback(() => {
+    if (parent) {
+      actions.selectNode(parent)
+    }
+  }, [parent])
+
+  const handleDelete = useCallback(() => {
+    actions.delete(id)
+  }, [id])
 
   // Click
   useEffect(() => {
@@ -66,14 +87,6 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
     }
   }, [dom, isHover, isRootNode, isActive])
 
-  // 定位提示框的位置
-  const getPos = useCallback((dom: HTMLElement) => {
-    const { top, left, bottom } = dom ? dom.getBoundingClientRect() : { top: 0, left: 0, bottom: 0 }
-    return {
-      top: top > 24 ? top - 24 : bottom,
-      left: left,
-    }
-  }, [])
   const { top, left } = getPos(dom!)
 
   return (
@@ -92,15 +105,18 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
                 width: 'max-content',
                 display: 'flex',
                 alignItems: 'center',
+                gap: '8px',
                 minWidth: 'max-content',
                 height: 24,
                 color: '#fff',
                 paddingInline: 6,
-                fontSize: 12,
+                fontSize: 14,
               }}
             >
-              {name}
-              {moveable && <DragOutlined ref={drag as any} style={{ marginLeft: 8 }} />}
+              <Typography.Text style={{ marginRight: 16 }}>{name}</Typography.Text>
+              {moveable && <DragOutlined ref={drag as any} />}
+              <ArrowUpOutlined onClick={handleToParent} />
+              <DeleteOutlined onClick={handleDelete} />
             </div>,
             canvasDocument?.body as HTMLElement,
           )

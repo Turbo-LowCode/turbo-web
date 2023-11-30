@@ -49,7 +49,7 @@ export const Settings = () => {
 
   useEffect(() => {
     if (nodeId) {
-      console.log('currentNodeId', nodeId, props, SettingRender)
+      console.log('currentNodeId', nodeId, props)
 
       // 切换组件清除setter配置，并设置新组件内容属性配置
       form.resetFields()
