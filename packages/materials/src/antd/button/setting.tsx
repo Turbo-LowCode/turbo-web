@@ -6,7 +6,8 @@ export const ButtonSetting = () => {
     <div>
       <FormSetter
         fields={{
-          name: 'children',
+          // name: 'children',
+          name: 'text',
           label: '文本内容',
         }}
       >

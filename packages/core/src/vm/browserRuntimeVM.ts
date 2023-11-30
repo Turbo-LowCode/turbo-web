@@ -1,15 +1,14 @@
 import { BrowserRuntimeVMWindow, ExecuteResult, InjectVMVarsType } from '@/types'
 
-class BrowserRuntimeVM extends Window {
+class BrowserRuntimeVM {
   private iframe: HTMLIFrameElement | null = null
 
   constructor() {
-    super()
     this.createIFrame()
   }
 
   private createIFrame() {
-    this.iframe = this.document.createElement('iframe')
+    this.iframe = document.createElement('iframe')
     // iframe 中的脚本只能访问与主文档具有相同源的内容，并且只能运行;JavaScript 脚本。
     // 这可以保证 iframe 与主文档之间的安全隔离，防止 iframe 中的恶意脚本影响主文档
     this.iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts')

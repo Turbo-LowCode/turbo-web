@@ -1,7 +1,8 @@
 import { UserComponent, UserComponentConfig, useNode } from '@craftjs/core'
-import { cloneDeep } from 'lodash'
+import { cloneDeepWith } from 'lodash'
 import { PropsWithChildren, forwardRef, useMemo } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { browserRuntimeVM, isExpression, parseStrToLte } from '..'
 
 export type ReactMaterialComponent = UserComponent
 
@@ -39,8 +40,13 @@ const withConnectNode = (
       custom: state.data.custom,
     }))
     const memoizedProps = useMemo(() => {
-      const data = cloneDeep(props)
-      return data
+      const cloneProps = cloneDeepWith(props, val => {
+        if (val && isExpression(val)) {
+          console.log('执行代码:', val)
+          return browserRuntimeVM?.execute(parseStrToLte(val), { props })?.data
+        }
+      })
+      return cloneProps
     }, [props])
 
     return (
@@ -67,7 +73,7 @@ const withConnectNode = (
  * @param { ReactMaterialComponent } component  物料组件
  * @param { UserComponentConfig } config 物料配置
  */
-export const createReactMaterial = <T=any>(
+export const createReactMaterial = <T = any,>(
   component: any,
   config: Partial<UserComponentConfig<T>>,
   defaultProps?: Record<string, any>,
