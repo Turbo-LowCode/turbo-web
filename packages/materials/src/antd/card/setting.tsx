@@ -1,3 +1,3 @@
 export const CardSetting = () => {
-  return <div></div>
+  return <div>CardSetting</div>
 }

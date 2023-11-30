@@ -1,3 +1,3 @@
 export const BoxSetting = () => {
-  return <div></div>
+  return <div>BoxSetting</div>
 }

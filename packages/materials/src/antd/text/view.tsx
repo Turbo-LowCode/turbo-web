@@ -7,7 +7,7 @@ export const TextView: ReactMaterialViewType<TypographyProps & PropsWithChildren
   ref: any,
 ) => {
   return (
-    <div ref={ref} className="inline-block">
+    <div ref={ref} style={{ display: 'inline-block' }}>
       <Typography.Text {...props}>{children}</Typography.Text>
     </div>
   )

@@ -7,7 +7,7 @@ export const TitleView: ReactMaterialViewType<TypographyProps & PropsWithChildre
   ref: any,
 ) => {
   return (
-    <div ref={ref} className="inline-block">
+    <div ref={ref} style={{ display: 'inline-block' }}>
       <Typography.Title {...props}>{children}</Typography.Title>
     </div>
   )
