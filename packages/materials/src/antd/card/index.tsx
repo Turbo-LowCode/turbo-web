@@ -1,6 +1,6 @@
 import { Element } from '@craftjs/core'
 import { createReactMaterial } from '@turbo/core'
-import { CardPanel } from './panel'
+import { CardSetting } from './setting'
 import { CardView } from './view'
 
 export const __AntDCard__ = createReactMaterial(
@@ -12,7 +12,7 @@ export const __AntDCard__ = createReactMaterial(
       useCanvas: true,
     },
     related: {
-      settingRender: CardPanel,
+      settingRender: CardSetting,
     },
   },
   {

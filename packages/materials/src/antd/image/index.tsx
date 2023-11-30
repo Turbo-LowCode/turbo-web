@@ -1,6 +1,6 @@
-import { ImageView } from './view'
-import { ImagePanel } from './panel'
 import { createReactMaterial } from '@turbo/core'
+import { ImageSetting } from './setting'
+import { ImageView } from './view'
 
 export const __AntDImage__ = createReactMaterial(
   ImageView,
@@ -10,7 +10,7 @@ export const __AntDImage__ = createReactMaterial(
       useResize: false,
     },
     related: {
-      settingRender: ImagePanel,
+      settingRender: ImageSetting,
     },
   },
   {

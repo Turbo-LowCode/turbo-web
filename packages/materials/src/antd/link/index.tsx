@@ -1,5 +1,5 @@
 import { createReactMaterial } from '@turbo/core'
-import { LinkPanel } from './panel'
+import { LinkSetting } from './setting'
 import { LinkView } from './view'
 
 export const __AntDLink__ = createReactMaterial(LinkView, {
@@ -8,6 +8,6 @@ export const __AntDLink__ = createReactMaterial(LinkView, {
     useResize: false,
   },
   related: {
-    settingRender: LinkPanel,
+    settingRender: LinkSetting,
   },
 })

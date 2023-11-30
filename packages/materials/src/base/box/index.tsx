@@ -1,5 +1,5 @@
 import { createReactMaterial } from '@turbo/core'
-import { BoxPanel } from './panel'
+import { BoxSetting } from './setting'
 import { BoxView } from './view'
 
 export const __Box__ = createReactMaterial(BoxView, {
@@ -9,6 +9,6 @@ export const __Box__ = createReactMaterial(BoxView, {
     useResize: true,
   },
   related: {
-    settingRender: BoxPanel,
+    settingRender: BoxSetting,
   },
 })

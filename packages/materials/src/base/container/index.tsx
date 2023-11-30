@@ -1,6 +1,6 @@
-import { ProviderView } from './view'
-import { ProviderPanel } from './panel'
 import { createReactMaterial } from '@turbo/core'
+import { ProviderSetting } from './setting'
+import { ProviderView } from './view'
 
 export const __Provider__ = createReactMaterial(ProviderView, {
   displayName: 'Provider',
@@ -9,6 +9,6 @@ export const __Provider__ = createReactMaterial(ProviderView, {
     useResize: false,
   },
   related: {
-    settingRender: ProviderPanel,
+    settingRender: ProviderSetting,
   },
 })

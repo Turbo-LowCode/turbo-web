@@ -1,5 +1,5 @@
 import { createReactMaterial } from '@turbo/core'
-import { TitlePanel } from './panel'
+import { TitleSetting } from './setting'
 import { TitleView } from './view'
 
 export const __ArcoTitle__ = createReactMaterial(TitleView, {
@@ -8,6 +8,6 @@ export const __ArcoTitle__ = createReactMaterial(TitleView, {
     useResize: false,
   },
   related: {
-    settingRender: TitlePanel,
+    settingRender: TitleSetting,
   },
 })
