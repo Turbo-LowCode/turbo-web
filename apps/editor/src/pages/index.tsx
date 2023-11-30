@@ -1,5 +1,5 @@
-import { Framework } from '@/components/Framework/Framework'
+import { EditorFramework } from '@/components/EditorFramework/EditorFramework'
 
 export const Editor = () => {
-  return <Framework />
+  return <EditorFramework />
 }
