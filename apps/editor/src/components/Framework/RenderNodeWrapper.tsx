@@ -25,7 +25,6 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
       dragNodeId,
     }
   })
-  console.log(id, isActive, isHover)
   const {
     dom,
     name,

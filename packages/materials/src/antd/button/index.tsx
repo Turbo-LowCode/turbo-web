@@ -1,5 +1,5 @@
 import { createReactMaterial } from '@turbo/core'
-import { ButtonPanel } from './panel'
+import { ButtonSetting } from './setting'
 import { ButtonView } from './view'
 
 export const __AntDButton__ = createReactMaterial(ButtonView, {
@@ -8,6 +8,6 @@ export const __AntDButton__ = createReactMaterial(ButtonView, {
     useResize: false,
   },
   related: {
-    settingRender: ButtonPanel,
+    settingRender: ButtonSetting,
   },
 })

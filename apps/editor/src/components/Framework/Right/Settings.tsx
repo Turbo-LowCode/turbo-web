@@ -6,7 +6,8 @@ import { useEffect } from 'react'
 
 const useStyles = createStyles(({ css }) => ({
   Setting: css`
-    height: '100%';
+    height: 100%;
+    padding-inline: 8px;
     & .ant-pro-form-group-title {
       font-weight: 600;
       margin-block-end: 0;
@@ -39,8 +40,8 @@ export const Settings = () => {
 
   const handleFormChange = (values: any) => {
     if (nodeId) {
-      setProp(nodeId, setterProps => {
-        return merge(setterProps, values)
+      setProp(nodeId, props => {
+        return merge(props, values)
       })
     }
     return true
