@@ -9,7 +9,7 @@ export const ProviderView: ReactMaterialViewType<CSSProperties & PropsWithChildr
   const iframe = document.getElementById(CanvasRootId) as HTMLIFrameElement
 
   return (
-    <ConfigProvider getPopupContainer={() => iframe.contentDocument?.body || document.body}>
+    <ConfigProvider getPopupContainer={() => iframe?.contentDocument?.body || document.body}>
       <div ref={ref} style={{ ...props }}>
         {children}
       </div>

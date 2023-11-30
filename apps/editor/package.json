@@ -13,7 +13,8 @@
     "@turbo/core": "workspace:*",
     "@turbo/icons": "workspace:*",
     "@turbo/materials": "workspace:*",
-    "react-frame-component": "^5.2.6"
+    "react-frame-component": "^5.2.6",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@turbo/eslint-config": "workspace:*",

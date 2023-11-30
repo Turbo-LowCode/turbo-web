@@ -4,13 +4,15 @@ import { RenderViewSandbox } from './RenderViewSandbox'
 
 const useStyles = createStyles(({ token }) => ({
   Main: {
+    width: '100%',
+    height: '100%',
     background: '#f9fafb',
     borderLeft: `1px solid ${token.colorBorderSecondary}`,
     borderRight: `1px solid ${token.colorBorderSecondary}`,
   },
   Canvas: {
-    height: '100%',
     width: '100%',
+    height: '100%',
     padding: 30,
     backgroundImage:
       'linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px) linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)',

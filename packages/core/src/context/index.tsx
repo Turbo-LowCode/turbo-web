@@ -14,7 +14,7 @@ export const FrameworkContextProvider = forwardRef<EditorRefProps, EditorProps>(
     <StoreProvider store={store}>
       <FrameworkContext.Provider value={{ enabled: props.enabled }}>
         <Editor {...props}>
-          <EditorRef />
+          <EditorRef ref={ref} />
           {children}
         </Editor>
       </FrameworkContext.Provider>
