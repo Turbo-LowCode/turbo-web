@@ -59,7 +59,7 @@ export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
               }
             }}
           >
-            <div className="flex flex-col justify-center items-center gap-2 text-sm">
+            <div className="flex flex-col justify-center items-center gap-2 text-sm cursor-grab">
               <div style={{ fontSize: 16 }}>{icon ? createElement(icon) : <TurboRemixIcon type="icon-link-m" />}</div>
               {displayName}
             </div>
