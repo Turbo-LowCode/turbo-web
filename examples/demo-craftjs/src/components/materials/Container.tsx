@@ -12,7 +12,7 @@ const Container = ({ background, padding = 0, children }: Props) => {
   } = useNode()
 
   return (
-    <div ref={ref => connect(drag(ref))} className="my-5" style={{ background, padding: `${padding}px` }}>
+    <div ref={ref => connect(drag(ref))} className='my-5' style={{ background, padding: `${padding}px` }}>
       {children}
     </div>
   )

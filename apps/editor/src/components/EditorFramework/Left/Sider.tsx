@@ -27,7 +27,7 @@ const useStyles = createStyles(({ token }) => ({
 
 const SidebarItem: FC<SidebarItemProps> = ({ active, tooltip, ...props }) => {
   return (
-    <Tooltip placement="right" title={tooltip}>
+    <Tooltip placement='right' title={tooltip}>
       <Button {...props} ghost type={active ? 'primary' : 'text'} />
     </Tooltip>
   )
@@ -38,7 +38,7 @@ export const Sidebar: FC<SidebarProps> = ({ value, menus, onChange }) => {
 
   return (
     <div className={styles.Sidebar}>
-      <Space size="middle" direction="vertical">
+      <Space size='middle' direction='vertical'>
         {menus.map(record => (
           <SidebarItem
             key={record.value}

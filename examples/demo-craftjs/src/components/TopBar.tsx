@@ -16,17 +16,17 @@ const TopBar = () => {
   }
 
   return (
-    <div className="p-1 mt-3 mb-1 bg-[#cbe8e7]">
-      <div className="flex justify-between items-center">
+    <div className='p-1 mt-3 mb-1 bg-[#cbe8e7]'>
+      <div className='flex justify-between items-center'>
         <div>
           <Typography.Text>Enable</Typography.Text>
           <Switch checked={enabled} onChange={val => setOptions(options => (options.enabled = val))} />
         </div>
         <div>
-          <Button size="middle" type="dashed" color="primary" onClick={() => console.log(query.serialize())}>
+          <Button size='middle' type='dashed' color='primary' onClick={() => console.log(query.serialize())}>
             Serialize JSON
           </Button>
-          <Button size="middle" type="dashed" color="primary" onClick={save}>
+          <Button size='middle' type='dashed' color='primary' onClick={save}>
             Save
           </Button>
         </div>

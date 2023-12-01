@@ -37,15 +37,15 @@ export const ToolBar = () => {
 
   return (
     <div className={styles.ToolBar}>
-      <Tooltip placement="bottom" color="blue" title="撤销">
-        <Button icon={<TurboRemixIcon type="icon-arrow-go-back-fill" />} onClick={actions.history.undo} />
+      <Tooltip placement='bottom' color='blue' title='撤销'>
+        <Button icon={<TurboRemixIcon type='icon-arrow-go-back-fill' />} onClick={actions.history.undo} />
       </Tooltip>
-      <Tooltip placement="bottom" color="blue" title="恢复">
-        <Button icon={<TurboRemixIcon type="icon-arrow-go-forward-fill" />} onClick={actions.history.redo} />
+      <Tooltip placement='bottom' color='blue' title='恢复'>
+        <Button icon={<TurboRemixIcon type='icon-arrow-go-forward-fill' />} onClick={actions.history.redo} />
       </Tooltip>
-      <Tooltip placement="bottom" color="blue" title="强制刷新">
+      <Tooltip placement='bottom' color='blue' title='强制刷新'>
         <Popconfirm
-          title="强制刷新"
+          title='强制刷新'
           description={
             <div style={{ width: 250 }}>
               强制刷新将会导致您页面的修改丢失，且无法恢复，如果继续进行下一步，请点击确认按钮。
@@ -58,24 +58,24 @@ export const ToolBar = () => {
             type: 'dashed',
           }}
         >
-          <Button icon={<TurboRemixIcon type="icon-refresh-line" />} />
+          <Button icon={<TurboRemixIcon type='icon-refresh-line' />} />
         </Popconfirm>
       </Tooltip>
       <JSEditor
         trigger={
-          <Tooltip placement="bottom" color="blue" title="代码">
-            <Button icon={<TurboRemixIcon type="icon-braces-line" />} onClick={actions.history.redo} />
+          <Tooltip placement='bottom' color='blue' title='代码'>
+            <Button icon={<TurboRemixIcon type='icon-braces-line' />} onClick={actions.history.redo} />
           </Tooltip>
         }
       />
       <Tooltip
-        placement="bottom"
+        placement='bottom'
         color={isRootNode ? 'red' : 'blue'}
         title={isRootNode ? '当前选中为根节点，不允许删除' : '删除'}
       >
         <Button
           danger
-          icon={<TurboRemixIcon type="icon-delete-bin-4-line" />}
+          icon={<TurboRemixIcon type='icon-delete-bin-4-line' />}
           onClick={handleDeleteSelectedNode}
           disabled={isRootNode}
         />

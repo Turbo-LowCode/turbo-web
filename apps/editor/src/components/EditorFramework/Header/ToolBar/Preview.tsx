@@ -19,7 +19,7 @@ export const Preview = () => {
   }
 
   return (
-    <Button type="dashed" onClick={handlePreview}>
+    <Button type='dashed' onClick={handlePreview}>
       预览
     </Button>
   )

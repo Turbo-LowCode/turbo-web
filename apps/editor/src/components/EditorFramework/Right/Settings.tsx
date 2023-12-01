@@ -60,7 +60,7 @@ export const Settings = () => {
   return (
     <div className={styles.Setting}>
       <Form
-        layout="vertical"
+        layout='vertical'
         form={form}
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
@@ -70,8 +70,8 @@ export const Settings = () => {
         {SettingRender ? (
           <SettingRender />
         ) : (
-          <Card size="small">
-            <Typography.Text type="secondary">暂无选中组件，点击画布中的组件可以进行选择。</Typography.Text>
+          <Card size='small'>
+            <Typography.Text type='secondary'>暂无选中组件，点击画布中的组件可以进行选择。</Typography.Text>
           </Card>
         )}
       </Form>

@@ -36,13 +36,13 @@ export const Right = () => {
   const { token } = theme.useToken()
 
   return (
-    <div className="h-[calc(100%_-_50px)]">
+    <div className='h-[calc(100%_-_50px)]'>
       <Tabs
         className={styles.Tab}
-        size="small"
+        size='small'
         items={items}
         tabBarStyle={{ paddingInline: token.paddingXS }}
-        defaultActiveKey="prototype"
+        defaultActiveKey='prototype'
       />
     </div>
   )

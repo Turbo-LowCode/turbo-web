@@ -20,28 +20,28 @@ function App() {
 
   return (
     <div style={{ margin: '0 auto', width: '800px' }}>
-      <Typography.Title level={5} className="text-center">
+      <Typography.Title level={5} className='text-center'>
         A super simple page editor
       </Typography.Title>
       {/* Remember that every User Component must be added to our resolver */}
       <Editor resolver={{ Card, Button, Text, Container, CardTop, CardBottom }}>
         <TopBar />
-        <div className="flex pt-10 gap-3">
-          <div className="flex-1">
+        <div className='flex pt-10 gap-3'>
+          <div className='flex-1'>
             <Frame data={json}>
-              <Element canvas is={Container} padding={5} background="#eee">
+              <Element canvas is={Container} padding={5} background='#eee'>
                 <Card />
-                <Button size="small" type="dashed">
+                <Button size='small' type='dashed'>
                   Click
                 </Button>
-                <Text fontSize={20} text="Hi world!" />
-                <Element canvas is={Container} padding={6} background="#999">
+                <Text fontSize={20} text='Hi world!' />
+                <Element canvas is={Container} padding={6} background='#999'>
                   <Text fontSize={14} text="It's me again!" />
                 </Element>
               </Element>
             </Frame>
           </div>
-          <div className="my-5">
+          <div className='my-5'>
             <Toolbox />
             <SettingPanel />
           </div>

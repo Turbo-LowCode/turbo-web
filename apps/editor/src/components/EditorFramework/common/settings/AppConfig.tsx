@@ -9,8 +9,8 @@ const npmCDNOptions = [
 
 export const AppConfig = () => {
   return (
-    <ProForm layout="horizontal" submitter={false}>
-      <ProFormSelect width="md" label="依赖安装源" options={npmCDNOptions} />
+    <ProForm layout='horizontal' submitter={false}>
+      <ProFormSelect width='md' label='依赖安装源' options={npmCDNOptions} />
     </ProForm>
   )
 }

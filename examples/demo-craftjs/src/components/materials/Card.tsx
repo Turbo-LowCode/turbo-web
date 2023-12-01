@@ -9,7 +9,7 @@ export const CardTop = ({ children }: PropsWithChildren) => {
     connectors: { connect },
   } = useNode()
   return (
-    <div ref={connect} className="text-only">
+    <div ref={connect} className='text-only'>
       {children}
     </div>
   )
@@ -45,12 +45,12 @@ const Card = ({ background = '#fff', padding = 20 }: Props) => {
   return (
     <Container background={background} padding={padding}>
       {/* <Element /> used inside User Component must specify an id prop */}
-      <Element is={CardTop} id="texts" canvas>
-        <Text text="Title" fontSize={20} />
-        <Text text="Subtitle" fontSize={15} />
+      <Element is={CardTop} id='texts' canvas>
+        <Text text='Title' fontSize={20} />
+        <Text text='Subtitle' fontSize={15} />
       </Element>
-      <Element is={CardBottom} id="buttons" canvas>
-        <Button size="small" type="primary" color="primary">
+      <Element is={CardBottom} id='buttons' canvas>
+        <Button size='small' type='primary' color='primary'>
           Learn more
         </Button>
       </Element>

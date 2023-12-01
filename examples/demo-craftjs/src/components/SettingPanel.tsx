@@ -22,9 +22,9 @@ const SettingPanel = () => {
   })
 
   return (
-    <div className="mt-2 p-2 shadow">
-      <div className="flex flex-col">
-        <div className="pb-2">
+    <div className='mt-2 p-2 shadow'>
+      <div className='flex flex-col'>
+        <div className='pb-2'>
           <Typography.Title level={5}>SettingPanel</Typography.Title>
           <Typography.Text>id: {selected?.id}</Typography.Text>
           <Typography.Text>name: {selected?.name}</Typography.Text>

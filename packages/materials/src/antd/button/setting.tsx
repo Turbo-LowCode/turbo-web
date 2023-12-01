@@ -20,7 +20,7 @@ export const ButtonSetting = () => {
           tooltip: '添加跳转链接，设置此属性，button表现跟a标签一致',
         }}
       >
-        <Input placeholder="请输入跳转地址." />
+        <Input placeholder='请输入跳转地址.' />
       </FormSetter>
       <FormSetter
         fields={{
@@ -38,7 +38,7 @@ export const ButtonSetting = () => {
           valuePropName: 'checked',
         }}
       >
-        <Switch checkedChildren="禁用" unCheckedChildren="启用" />
+        <Switch checkedChildren='禁用' unCheckedChildren='启用' />
       </FormSetter>
       <FormSetter
         fields={{
@@ -47,7 +47,7 @@ export const ButtonSetting = () => {
           valuePropName: 'checked',
         }}
       >
-        <Switch checkedChildren="禁用" unCheckedChildren="启用" />
+        <Switch checkedChildren='禁用' unCheckedChildren='启用' />
       </FormSetter>
       <FormSetter
         fields={{

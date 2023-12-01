@@ -11,29 +11,29 @@ const Toolbox = () => {
   } = useEditor()
 
   return (
-    <div className="p-2">
-      <div className="flex flex-col justify-center items-center gap-1">
-        <Typography className="pb-2">Drag to add</Typography>
+    <div className='p-2'>
+      <div className='flex flex-col justify-center items-center gap-1'>
+        <Typography className='pb-2'>Drag to add</Typography>
         <AntdButton
           ref={ref =>
             create(
               ref,
-              <Button type="default" size="middle">
+              <Button type='default' size='middle'>
                 Button
               </Button>,
             )
           }
-          type="primary"
+          type='primary'
         >
           Button
         </AntdButton>
-        <AntdButton ref={ref => create(ref, <Text fontSize={16} text="Text" />)} type="primary">
+        <AntdButton ref={ref => create(ref, <Text fontSize={16} text='Text' />)} type='primary'>
           Text
         </AntdButton>
-        <AntdButton ref={ref => create(ref, <Container padding={5} background="transparent" />)} type="primary">
+        <AntdButton ref={ref => create(ref, <Container padding={5} background='transparent' />)} type='primary'>
           Container
         </AntdButton>
-        <AntdButton ref={ref => create(ref, <Card padding={5} background="transparent" />)} type="primary">
+        <AntdButton ref={ref => create(ref, <Card padding={5} background='transparent' />)} type='primary'>
           Card
         </AntdButton>
       </div>

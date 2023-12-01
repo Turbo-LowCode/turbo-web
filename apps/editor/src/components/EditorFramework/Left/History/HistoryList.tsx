@@ -39,24 +39,24 @@ export const HistoryList: FC<HistoryListProps> = ({ list, reload }) => {
   }
 
   return (
-    <div className="p-3">
+    <div className='p-3'>
       <Row gutter={[12, 12]}>
         {list.map(item => {
           return (
             <Col span={24} key={item.id}>
-              <Card size="small">
-                <Space direction="vertical">
+              <Card size='small'>
+                <Space direction='vertical'>
                   <Typography.Text>{item.createTime}</Typography.Text>
                   <Space>
-                    <Typography.Text className="text-xs cursor-pointer" onClick={() => handleImport(item)}>
+                    <Typography.Text className='text-xs cursor-pointer' onClick={() => handleImport(item)}>
                       导入
                     </Typography.Text>
-                    <Typography.Link className="text-xs cursor-pointer" onClick={() => handlePreview(item)}>
+                    <Typography.Link className='text-xs cursor-pointer' onClick={() => handlePreview(item)}>
                       预览
                     </Typography.Link>
                     <Typography.Text
-                      type="danger"
-                      className="text-xs cursor-pointer"
+                      type='danger'
+                      className='text-xs cursor-pointer'
                       onClick={() => handleDelete(item.id)}
                     >
                       删除

@@ -24,7 +24,7 @@ export const Header = () => {
       <Alert
         banner
         showIcon={false}
-        type="info"
+        type='info'
         message={
           <div className={'text-center'}>
             <Typography.Link>
@@ -35,9 +35,9 @@ export const Header = () => {
         closable
       />
       <div className={styles.Header}>
-        <div className="flex items-center justify-start gap-2">
+        <div className='flex items-center justify-start gap-2'>
           <AppMenu />
-          <Divider className="m-2 border-[#e5e6eb]" type="vertical" />
+          <Divider className='m-2 border-[#e5e6eb]' type='vertical' />
           <div>
             <Typography.Text
               strong
@@ -50,7 +50,7 @@ export const Header = () => {
           </div>
         </div>
         <ToolBar />
-        <div className="flex items-center justify-end gap-3">
+        <div className='flex items-center justify-end gap-3'>
           <ConfigSettings />
           <Preview />
           <Publish />

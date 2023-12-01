@@ -51,7 +51,7 @@ export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> 
             }
           : false
       }
-      bounds="parent"
+      bounds='parent'
       {...props}
       onResizeStop={handleResizableChange}
       handleStyles={{

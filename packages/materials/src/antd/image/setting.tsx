@@ -36,7 +36,7 @@ export const ImageSetting = () => {
           tooltip: '是否开启预览',
         }}
       >
-        <Switch checkedChildren="禁用" unCheckedChildren="启用" />
+        <Switch checkedChildren='禁用' unCheckedChildren='启用' />
       </FormSetter>
     </div>
   )

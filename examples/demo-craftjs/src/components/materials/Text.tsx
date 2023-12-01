@@ -31,10 +31,10 @@ const TextSettings = () => {
 
   return (
     <Form>
-      <FormItem label="文本">
+      <FormItem label='文本'>
         <Input value={text} onChange={e => setProp(props => (props.text = e.target.value))} />
       </FormItem>
-      <FormItem label="大小">
+      <FormItem label='大小'>
         <Slider min={10} max={100} value={fontSize} onChange={val => setProp(props => (props.fontSize = val))} />
       </FormItem>
     </Form>

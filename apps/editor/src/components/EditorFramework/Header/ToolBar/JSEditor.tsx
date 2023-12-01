@@ -47,12 +47,12 @@ export const JSEditor: FC<JSEditorProps> = ({ trigger }) => {
   }
 
   return (
-    <ModalForm title="JS模块" trigger={trigger} onFinish={onBuilderJSCode}>
+    <ModalForm title='JS模块' trigger={trigger} onFinish={onBuilderJSCode}>
       <ProCard ghost>
         <CodeEditor
           height={500}
-          language="typescript"
-          defaultLanguage="typescript"
+          language='typescript'
+          defaultLanguage='typescript'
           defaultValue={jsModuleCode}
           onMount={onEditorMount}
         />

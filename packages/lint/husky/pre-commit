@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+node C:/Users/Fan Jin/Desktop/Github/Turbo-LowCode/turbo-web/packages/lint/runLintStaged.js

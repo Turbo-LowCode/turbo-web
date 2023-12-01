@@ -27,9 +27,9 @@ export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
         {isPreview ? (
           <DocumentFrame />
         ) : (
-          <div className="grid overflow-hidden h-full grid-rows-[auto_1fr]">
+          <div className='grid overflow-hidden h-full grid-rows-[auto_1fr]'>
             <Header />
-            <div id="editorContent" className="h-full grid grid-cols-[auto_1fr_300px]">
+            <div id='editorContent' className='h-full grid grid-cols-[auto_1fr_300px]'>
               <Left />
               <Canvas />
               <Right />

@@ -18,7 +18,7 @@ export type FunctionComponent<T = any> = React.FC<
 
 const FallbackRender = (props: any) => {
   return (
-    <div role="alert">
+    <div role='alert'>
       <p>Something went wrong:</p>
       <pre style={{ color: 'red' }}>{props.error.message}</pre>
     </div>
@@ -73,7 +73,7 @@ const withConnectNode = (
  * @param { ReactMaterialComponent } component  物料组件
  * @param { UserComponentConfig } config 物料配置
  */
-export const createReactMaterial = <T = any,>(
+export const createReactMaterial = <T = any>(
   component: any,
   config: Partial<UserComponentConfig<T>>,
   defaultProps?: Record<string, any>,

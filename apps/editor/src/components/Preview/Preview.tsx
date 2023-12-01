@@ -24,6 +24,6 @@ export const Preview = () => {
   return isExist ? (
     <EditorFramework ref={editorFrameworkRef} isPreview />
   ) : (
-    <Result status="404" title="未能找到预览页面" />
+    <Result status='404' title='未能找到预览页面' />
   )
 }

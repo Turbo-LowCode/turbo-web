@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo ''
+echo "\e[0;32m ******* pre-commit 钩子触发 **************\e[0m"
+echo ''
+
+node "C:/Users/Fan Jin/Desktop/Github/Turbo-LowCode/turbo-web/packages/lint/runLintStaged.mjs"
