@@ -5,17 +5,17 @@ import { Settings } from './Settings'
 
 const useStyles = createStyles(({ token, css }) => ({
   Tab: css`
-    height: 100%;
-    .ant-tabs-content-top {
-      height: 100%;
-    }
-    .ant-tabs-tabpane {
-      padding: ${token.paddingXS};
-      overflow: auto;
-      height: calc(100% - 80px);
-      box-sizing: border-box;
-    }
-  `,
+		height: 100%;
+		.ant-tabs-content-top {
+			height: 100%;
+		}
+		.ant-tabs-tabpane {
+			padding: ${token.paddingXS};
+			overflow: auto;
+			height: calc(100% - 80px);
+			box-sizing: border-box;
+		}
+	`,
 }))
 
 const items: TabsProps['items'] = [

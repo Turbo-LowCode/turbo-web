@@ -24,9 +24,8 @@ const findNearestGit = dirname => {
   }
   if (isGitFolder(dirname)) {
     return dirname
-  } else {
-    return findNearestGit(resolve(dirname, '..'))
   }
+  return findNearestGit(resolve(dirname, '..'))
 }
 
 const __filename = fileURLToPath(import.meta.url)

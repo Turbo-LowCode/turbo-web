@@ -222,9 +222,6 @@ importers:
 
   packages/lint:
     devDependencies:
-      '@biomejs/biome':
-        specifier: 1.4.1
-        version: 1.4.1
       husky:
         specifier: ^8.0.3
         version: 8.0.3

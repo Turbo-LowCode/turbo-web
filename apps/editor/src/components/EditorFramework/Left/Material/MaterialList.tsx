@@ -17,23 +17,23 @@ const useStyles = createStyles(({ token, css }) => ({
     gap: token.paddingSM,
   },
   materialListItem: css`
-    border: '1px solid #e4e4e7';
-    padding-inline: ${token.paddingSM};
-    padding-block: 8;
-    border-radius: 8;
-    display: 'flex';
-    justify-content: 'center';
-    align-items: 'center';
-    transition: 'border-color .85s';
-    cursor: 'pointer';
-    gap: 8;
-    font-size: 14;
-    color: ${token.colorTextSecondary};
-    &:hover {
-      color: ${token.colorPrimary};
-      border-color: ${token.colorPrimary};
-    }
-  `,
+		border: "1px solid #e4e4e7";
+		padding-inline: ${token.paddingSM};
+		padding-block: 8;
+		border-radius: 8;
+		display: "flex";
+		justify-content: "center";
+		align-items: "center";
+		transition: "border-color .85s";
+		cursor: "pointer";
+		gap: 8;
+		font-size: 14;
+		color: ${token.colorTextSecondary};
+		&:hover {
+			color: ${token.colorPrimary};
+			border-color: ${token.colorPrimary};
+		}
+	`,
 }))
 
 export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
