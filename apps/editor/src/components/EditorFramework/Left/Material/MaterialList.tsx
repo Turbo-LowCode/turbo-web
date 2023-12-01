@@ -1,5 +1,5 @@
-import { SlackCircleFilled } from '@ant-design/icons'
 import { Canvas, useEditor } from '@craftjs/core'
+import { TurboRemixIcon } from '@turbo/icons'
 import { theme } from 'antd'
 import { createStyles } from 'antd-style'
 import { map } from 'lodash'
@@ -44,22 +44,25 @@ export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
   return (
     <div className={styles.materialList} style={{ gap: token.paddingSM }}>
       {map(materials, (value, key) => {
-        const displayName = value.craft?.displayName
+        const displayName = value.craft.displayName
+        const { icon } = value.craft.related || {}
         const { useCanvas = false } = value.craft?.custom ?? {}
 
         return (
           <div
             key={key}
+            className={styles.materialListItem}
             ref={(ref: HTMLDivElement) => {
               if (ref) {
                 // 拖拽时创建物料元素
                 connectors.create(ref, useCanvas ? <Canvas canvas is={value} /> : createElement(value))
               }
             }}
-            className={styles.materialListItem}
           >
-            <SlackCircleFilled className="font-bold text-base mr-2" />
-            {displayName}
+            <div className="flex flex-col justify-center items-center gap-2 text-sm">
+              <div style={{ fontSize: 16 }}>{icon ? createElement(icon) : <TurboRemixIcon type="icon-link-m" />}</div>
+              {displayName}
+            </div>
           </div>
         )
       })}
