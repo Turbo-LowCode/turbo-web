@@ -12,9 +12,9 @@ export const HistoryList: FC<HistoryListProps> = ({ data, reload }) => {
   // 处理预览逻辑
   const handlePreview = async (record: StoreItem) => {
     // 生成preview逻辑
-    const previewId = uuid()
-    sessionStorage.setItem(previewId, record.pageSchema)
-    window.open(`/preview/${previewId}?history=local&historyId=${record.id}`)
+    const pageId = uuid()
+    sessionStorage.setItem(pageId, record.pageSchema)
+    window.open(`/preview/${pageId}?history=local&historyId=${record.id}`)
   }
 
   const handleDelete = async (recordId: number) => {

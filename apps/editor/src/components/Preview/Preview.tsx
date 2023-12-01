@@ -6,14 +6,13 @@ import { EditorFramework } from '../EditorFramework/EditorFramework'
 
 export const Preview = () => {
   const editorFrameworkRef = useRef<EditorRefProps>(null)
-  const { projectId } = useParams()
+  const { pageId } = useParams()
   const [isExist, setIsExist] = useState(true)
 
   useEffect(() => {
-    console.log('🚀 ~ file: Preview.tsx:14 ~ useEffect ~ projectId:', projectId)
-    if (projectId) {
-      const schema = sessionStorage.getItem(projectId)
-      console.log('🚀 ~ file: Preview.tsx:16 ~ useEffect ~ schema:', schema, editorFrameworkRef)
+    console.log('🚀 ~ file: Preview.tsx:14 ~ useEffect ~ pageId:', pageId)
+    if (pageId) {
+      const schema = sessionStorage.getItem(pageId)
       if (editorFrameworkRef?.current && schema) {
         editorFrameworkRef.current.loadEditorSchema(schema)
       } else {

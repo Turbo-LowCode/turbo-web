@@ -8,10 +8,10 @@ export const Preview = () => {
   const handlePreview = () => {
     try {
       const schema = query.serialize()
-      const projectId = uuid()
-      sessionStorage.setItem(projectId, schema)
-      console.log(projectId, schema)
-      window.open(`/preview/${projectId}`)
+      const pageId = uuid()
+      sessionStorage.setItem(pageId, schema)
+      console.log(pageId, schema)
+      window.open(`/preview/${pageId}`)
     } catch (error) {
       console.error(error)
       message.error('哎呀，系统发生错误了，请查看控制台')

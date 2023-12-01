@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     Component: Editor,
   },
   {
-    path: '/preview/:projectId',
+    path: '/preview/:pageId',
     Component: Preview,
   },
 ])
