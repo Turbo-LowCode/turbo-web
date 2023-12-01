@@ -1,5 +1,5 @@
 import { Canvas, useEditor } from '@craftjs/core'
-import { TurboRemixIcon } from '@turbo/icons'
+import { TurboRemixIcon } from '@turbolc/icons'
 import { theme } from 'antd'
 import { createStyles } from 'antd-style'
 import { map } from 'lodash'

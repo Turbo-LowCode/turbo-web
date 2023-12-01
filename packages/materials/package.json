@@ -1,5 +1,5 @@
 {
-  "name": "@turbo/materials",
+  "name": "@turbolc/materials",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,12 +9,12 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@turbo/eslint-config": "workspace:*",
-    "@turbo/typescript-config": "workspace:*"
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*"
   },
   "dependencies": {
-    "@turbo/core": "workspace:*",
-    "@turbo/setter": "workspace:*",
+    "@turbolc/core": "workspace:*",
+    "@turbolc/setter": "workspace:*",
     "re-resizable": "^6.9.11",
     "react-error-boundary": "^4.0.11"
   }

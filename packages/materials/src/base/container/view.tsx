@@ -1,4 +1,4 @@
-import { CanvasRootId, ReactMaterialViewType } from '@turbo/core'
+import { CanvasRootId, ReactMaterialViewType } from '@turbolc/core'
 import { ConfigProvider } from 'antd'
 import { CSSProperties, PropsWithChildren } from 'react'
 

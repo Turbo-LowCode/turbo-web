@@ -1,4 +1,4 @@
-import { FormSetter } from '@turbo/setter'
+import { FormSetter } from '@turbolc/setter'
 import { Input, InputNumber, Switch } from 'antd'
 
 export const ImageSetting = () => {

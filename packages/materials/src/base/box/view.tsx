@@ -1,5 +1,5 @@
 import { useEditor, useNode } from '@craftjs/core'
-import { ReactMaterialViewType } from '@turbo/core'
+import { ReactMaterialViewType } from '@turbolc/core'
 import { useThrottleFn } from 'ahooks'
 import { Resizable, ResizableProps } from 're-resizable'
 import React, { PropsWithChildren } from 'react'

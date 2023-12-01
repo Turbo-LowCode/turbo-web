@@ -1,4 +1,4 @@
-import { createReactMaterial } from '@turbo/core'
+import { createReactMaterial } from '@turbolc/core'
 import { ProviderSetting } from './setting'
 import { ProviderView } from './view'
 

@@ -1,4 +1,4 @@
-import { ReactMaterialViewType } from '@turbo/core'
+import { ReactMaterialViewType } from '@turbolc/core'
 import { Button, ButtonProps } from 'antd'
 
 export const ButtonView: ReactMaterialViewType<ButtonProps & { text: string }> = (

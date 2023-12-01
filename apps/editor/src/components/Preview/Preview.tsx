@@ -1,4 +1,4 @@
-import { EditorRefProps } from '@turbo/core'
+import { EditorRefProps } from '@turbolc/core'
 import { Result } from 'antd'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'

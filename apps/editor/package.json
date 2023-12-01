@@ -1,5 +1,5 @@
 {
-  "name": "editor",
+  "name": "@turbolc/editor",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,14 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@turbo/core": "workspace:*",
-    "@turbo/icons": "workspace:*",
-    "@turbo/materials": "workspace:*",
+    "@turbolc/core": "workspace:*",
+    "@turbolc/icons": "workspace:*",
+    "@turbolc/materials": "workspace:*",
     "react-frame-component": "^5.2.6",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@turbo/eslint-config": "workspace:*",
-    "@turbo/typescript-config": "workspace:*"
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*"
   }
 }

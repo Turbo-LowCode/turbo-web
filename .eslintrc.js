@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@turbo/lint/index.js'],
+  extends: ['@turbolc/lint/index.js'],
 }

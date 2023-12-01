@@ -1,5 +1,5 @@
 import { Element } from '@craftjs/core'
-import { createReactMaterial } from '@turbo/core'
+import { createReactMaterial } from '@turbolc/core'
 import { CardSetting } from './setting'
 import { CardView } from './view'
 

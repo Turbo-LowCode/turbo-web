@@ -1,4 +1,4 @@
-import { ReactMaterialViewType } from '@turbo/core'
+import { ReactMaterialViewType } from '@turbolc/core'
 import { Card, CardProps } from 'antd'
 
 export const CardView: ReactMaterialViewType<CardProps> = ({ children, ...props }, ref: any) => {

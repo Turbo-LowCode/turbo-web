@@ -1,4 +1,4 @@
-import { FormSetter, toOptions } from '@turbo/setter'
+import { FormSetter, toOptions } from '@turbolc/setter'
 import { Input, Segmented, Select, Switch } from 'antd'
 
 export const ButtonSetting = () => {

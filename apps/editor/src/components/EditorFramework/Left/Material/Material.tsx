@@ -1,4 +1,4 @@
-import { __antdMaterials__, __baseMaterials__ } from '@turbo/materials'
+import { __antdMaterials__, __baseMaterials__ } from '@turbolc/materials'
 import { Divider, Space, Typography } from 'antd'
 import { MaterialList } from './MaterialList'
 

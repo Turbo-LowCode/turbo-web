@@ -1,4 +1,4 @@
-import { CanvasRootId } from '@turbo/core'
+import { CanvasRootId } from '@turbolc/core'
 import { StyleProvider } from 'antd-style'
 import { FC, PropsWithChildren, useRef } from 'react'
 import ReactFrameComponent, { FrameContextConsumer } from 'react-frame-component'

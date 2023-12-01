@@ -1,4 +1,4 @@
-import { createReactMaterial } from '@turbo/core'
+import { createReactMaterial } from '@turbolc/core'
 import { ImageSetting } from './setting'
 import { ImageView } from './view'
 

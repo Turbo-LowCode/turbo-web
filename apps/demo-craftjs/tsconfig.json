@@ -1,5 +1,5 @@
 {
-  "extends": ["@turbo/typescript-config"],
+  "extends": ["@turbolc/typescript-config"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

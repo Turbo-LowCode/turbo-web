@@ -12,10 +12,10 @@
     "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx ./"
   },
   "dependencies": {
-    "@turbo/core": "workspace:^"
+    "@turbolc/core": "workspace:^"
   },
   "devDependencies": {
-    "@turbo/eslint-config": "workspace:*",
-    "@turbo/typescript-config": "workspace:*"
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*"
   }
 }

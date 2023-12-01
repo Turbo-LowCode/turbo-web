@@ -1,5 +1,5 @@
 {
-  "name": "@turbo/setter",
+  "name": "@turbolc/setter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@turbo/eslint-config": "workspace:*",
-    "@turbo/typescript-config": "workspace:*"
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*"
   }
 }

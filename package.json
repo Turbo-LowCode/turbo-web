@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "demo:craftjs": "turbo dev --filter=demo-craftjs",
-    "dev:editor": "turbo dev --filter=editor",
+    "dev:editor": "turbo dev --filter=@turbolc/editor",
     "start:main": "turbo run start --filter=main",
     "start:editor": "turbo run start --filter=editor",
     "start:build": "turbo run build --filter=main",
@@ -20,7 +20,7 @@
     "@ant-design/cssinjs": "^1.17.0",
     "@ant-design/icons": "^5.2.5",
     "@ant-design/pro-components": "^2.6.11",
-    "@craftjs/core": "0.2.0-beta.12",
+    "@craftjs/core": "0.2.3",
     "@reduxjs/toolkit": "^1.9.7",
     "ahooks": "^3.7.8",
     "antd": "^5.10.0",
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@monaco-editor/react": "^4.5.1",
-    "@turbo/eslint-config": "workspace:*",
-    "@turbo/typescript-config": "workspace:*",
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.37",

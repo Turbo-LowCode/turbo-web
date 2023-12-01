@@ -1,4 +1,4 @@
-import { StoreItem, getHistoryList } from '@turbo/core'
+import { StoreItem, getHistoryList } from '@turbolc/core'
 import { Segmented } from 'antd'
 import { useEffect, useState } from 'react'
 import { HistoryList } from './HistoryList'

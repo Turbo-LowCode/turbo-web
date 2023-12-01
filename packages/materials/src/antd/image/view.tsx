@@ -1,4 +1,4 @@
-import { ReactMaterialViewType } from '@turbo/core'
+import { ReactMaterialViewType } from '@turbolc/core'
 import { Image, ImageProps } from 'antd'
 
 export const ImageView: ReactMaterialViewType<ImageProps> = (props, ref: any) => {

@@ -1,5 +1,5 @@
 import { ModalForm } from '@ant-design/pro-components'
-import { TurboRemixIcon } from '@turbo/icons'
+import { TurboRemixIcon } from '@turbolc/icons'
 import type { TabsProps } from 'antd'
 import { Button, Tabs } from 'antd'
 import { CodeEditor } from '../CodeEditor/CodeEditor'

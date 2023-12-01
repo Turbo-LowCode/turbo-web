@@ -1,5 +1,5 @@
 import { useEditor } from '@craftjs/core'
-import { StoreItem, deleteHistoryRecord } from '@turbo/core'
+import { StoreItem, deleteHistoryRecord } from '@turbolc/core'
 import { Card, Col, Row, Space, Typography, message } from 'antd'
 import { FC } from 'react'
 import { v4 as uuid } from 'uuid'

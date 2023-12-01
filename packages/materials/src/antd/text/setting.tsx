@@ -1,4 +1,4 @@
-import { FormSetter } from '@turbo/setter'
+import { FormSetter } from '@turbolc/setter'
 import { Input } from 'antd'
 
 export const TextSetting = () => {

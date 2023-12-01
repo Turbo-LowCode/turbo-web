@@ -1,5 +1,5 @@
 import { Canvas, Element, Frame } from '@craftjs/core'
-import { __AntDButton__, __Box__, __Provider__ } from '@turbo/materials'
+import { __AntDButton__, __Box__, __Provider__ } from '@turbolc/materials'
 
 export const DocumentFrame = () => {
   return (

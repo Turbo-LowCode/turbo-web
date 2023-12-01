@@ -1,4 +1,4 @@
-import { ReactMaterialViewType } from '@turbo/core'
+import { ReactMaterialViewType } from '@turbolc/core'
 import { Typography, TypographyProps } from 'antd'
 import { PropsWithChildren } from 'react'
 

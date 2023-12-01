@@ -1,6 +1,6 @@
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import { useEditor } from '@craftjs/core'
-import { TurboRemixIcon } from '@turbo/icons'
+import { TurboRemixIcon } from '@turbolc/icons'
 import { Button, Popconfirm, Tooltip, message } from 'antd'
 import { createStyles } from 'antd-style'
 import { JSEditor } from './JSEditor'

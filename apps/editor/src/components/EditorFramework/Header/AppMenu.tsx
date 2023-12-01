@@ -1,4 +1,4 @@
-import { TurboRemixIcon } from '@turbo/icons'
+import { TurboRemixIcon } from '@turbolc/icons'
 
 export const AppMenu = () => {
   return (

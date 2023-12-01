@@ -1,4 +1,4 @@
-import { createReactMaterial } from '@turbo/core'
+import { createReactMaterial } from '@turbolc/core'
 import { BoxSetting } from './setting'
 import { BoxView } from './view'
 
