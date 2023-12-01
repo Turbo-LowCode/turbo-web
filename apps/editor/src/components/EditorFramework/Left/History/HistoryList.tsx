@@ -1,14 +1,15 @@
+import { StoreItem, deleteHistoryRecord } from '@turbo/core'
 import { Card, Col, Row, Space, Typography, message } from 'antd'
 import { FC } from 'react'
 import { v4 as uuid } from 'uuid'
-import { StoreItem, deleteHistoryRecord } from './db'
 
 interface HistoryListProps {
-  data: StoreItem[]
+  list: StoreItem[]
   reload: () => void
 }
 
-export const HistoryList: FC<HistoryListProps> = ({ data, reload }) => {
+export const HistoryList: FC<HistoryListProps> = ({ list, reload }) => {
+  console.log('🚀 ~ file: HistoryList.tsx:12 ~ list:', list)
   // 处理预览逻辑
   const handlePreview = async (record: StoreItem) => {
     // 生成preview逻辑
@@ -26,7 +27,7 @@ export const HistoryList: FC<HistoryListProps> = ({ data, reload }) => {
   return (
     <div className="p-3">
       <Row gutter={[12, 12]}>
-        {data.map(item => {
+        {list.map(item => {
           return (
             <Col span={24} key={item.id}>
               <Card size="small">

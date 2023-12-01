@@ -1,6 +1,7 @@
 import { EditorRefProps } from '@/types'
 import { useEditor } from '@craftjs/core'
 import { forwardRef, useEffect, useImperativeHandle } from 'react'
+import { addHistoryRecord } from '../db'
 
 export const EditorRef = forwardRef<EditorRefProps>((_, ref) => {
   const { actions, query } = useEditor()
@@ -9,11 +10,16 @@ export const EditorRef = forwardRef<EditorRefProps>((_, ref) => {
   useEffect(() => {
     const autoSaveEditorSchema = () => {
       const schema = query.serialize()
-      localStorage.setItem('editor_schema', schema)
+      addHistoryRecord({
+        id: Date.now(),
+        user: 'test',
+        pageSchema: schema,
+        createTime: new Date().toLocaleString(),
+      })
       console.log('auto save editor schema')
     }
 
-    const timer = setInterval(autoSaveEditorSchema, 30 * 60 * 1000)
+    const timer = setInterval(autoSaveEditorSchema, 5 * 60 * 1000)
 
     return () => {
       clearInterval(timer)

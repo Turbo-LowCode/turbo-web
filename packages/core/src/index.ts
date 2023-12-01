@@ -1,4 +1,5 @@
 export * from './context'
+export * from './db'
 export * from './material'
 export * from './types'
 export * from './utils'
