@@ -14,29 +14,27 @@ export type FrameworkProps = FrameworkProviderProps & {
   // children?: React.ReactNode
 }
 
-export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
-  ({ enabled = true, isPreview = false }, ref) => {
-    return (
-      <FrameworkContextProvider
-        ref={ref}
-        enabled={enabled}
-        resolver={{ ...__baseMaterials__, ...__antdMaterials__ }}
-        onRender={RenderNodeWrapper}
-      >
-        {/* 供予预览直接显示子组件 */}
-        {isPreview ? (
-          <DocumentFrame />
-        ) : (
-          <div className="grid overflow-hidden h-full grid-rows-[auto_1fr]">
-            <Header />
-            <div id="editorContent" className="h-full grid grid-cols-[auto_1fr_300px]">
-              <Left />
-              <Canvas />
-              <Right />
-            </div>
+export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(({ isPreview = false }, ref) => {
+  return (
+    <FrameworkContextProvider
+      ref={ref}
+      enabled={!isPreview}
+      resolver={{ ...__baseMaterials__, ...__antdMaterials__ }}
+      onRender={RenderNodeWrapper}
+    >
+      {/* 供予预览直接显示子组件 */}
+      {isPreview ? (
+        <DocumentFrame />
+      ) : (
+        <div className="grid overflow-hidden h-full grid-rows-[auto_1fr]">
+          <Header />
+          <div id="editorContent" className="h-full grid grid-cols-[auto_1fr_300px]">
+            <Left />
+            <Canvas />
+            <Right />
           </div>
-        )}
-      </FrameworkContextProvider>
-    )
-  },
-)
+        </div>
+      )}
+    </FrameworkContextProvider>
+  )
+})

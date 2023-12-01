@@ -1,3 +1,4 @@
+import { useEditor } from '@craftjs/core'
 import { StoreItem, deleteHistoryRecord } from '@turbo/core'
 import { Card, Col, Row, Space, Typography, message } from 'antd'
 import { FC } from 'react'
@@ -9,8 +10,21 @@ interface HistoryListProps {
 }
 
 export const HistoryList: FC<HistoryListProps> = ({ list, reload }) => {
-  console.log('🚀 ~ file: HistoryList.tsx:12 ~ list:', list)
-  // 处理预览逻辑
+  const { actions } = useEditor()
+
+  const handleImport = async (record: StoreItem) => {
+    // TODO: 会导致太多的无用存储
+    // 先保存当前正在编辑的页面
+    // addHistoryRecord({
+    //   id: Date.now(),
+    //   user: 'test',
+    //   pageSchema: query.serialize(),
+    //   createTime: new Date().toLocaleString(),
+    // })
+    // 导入历史Schema
+    actions.deserialize(record.pageSchema)
+  }
+
   const handlePreview = async (record: StoreItem) => {
     // 生成preview逻辑
     const pageId = uuid()
@@ -34,8 +48,17 @@ export const HistoryList: FC<HistoryListProps> = ({ list, reload }) => {
                 <Space direction="vertical">
                   <Typography.Text>{item.createTime}</Typography.Text>
                   <Space>
-                    <Typography.Link onClick={() => handlePreview(item)}>预览</Typography.Link>
-                    <Typography.Text type="danger" onClick={() => handleDelete(item.id)}>
+                    <Typography.Text className="text-xs cursor-pointer" onClick={() => handleImport(item)}>
+                      导入
+                    </Typography.Text>
+                    <Typography.Link className="text-xs cursor-pointer" onClick={() => handlePreview(item)}>
+                      预览
+                    </Typography.Link>
+                    <Typography.Text
+                      type="danger"
+                      className="text-xs cursor-pointer"
+                      onClick={() => handleDelete(item.id)}
+                    >
                       删除
                     </Typography.Text>
                   </Space>
