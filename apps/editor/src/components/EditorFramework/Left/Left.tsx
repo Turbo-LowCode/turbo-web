@@ -2,7 +2,7 @@ import { ApartmentOutlined, ApiOutlined, CloudSyncOutlined, CodepenOutlined } fr
 import { createStyles } from 'antd-style'
 import { ReactElement, useState } from 'react'
 import { DataSource } from './DataSource'
-import { History } from './History'
+import { History } from './History/History'
 import { Material } from './Material/Material'
 import { OutlineTree } from './OutlineTree'
 import { Sidebar } from './Sider'
