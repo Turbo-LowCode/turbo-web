@@ -15,6 +15,9 @@
       "a11y": {
         "useKeyWithClickEvents": "off",
         "useKeyWithMouseEvents": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn"
       }
     },
     "ignore": []
