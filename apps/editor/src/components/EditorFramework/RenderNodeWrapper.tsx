@@ -113,7 +113,7 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
                 fontSize: 14,
               }}
             >
-              <Typography.Text style={{ marginRight: 16 }}>{name}</Typography.Text>
+              <Typography.Text style={{ marginRight: 16, color: 'white' }}>{name}</Typography.Text>
               {moveable && <DragOutlined ref={drag as any} />}
               <ArrowUpOutlined onClick={handleToParent} />
               <DeleteOutlined onClick={handleDelete} />

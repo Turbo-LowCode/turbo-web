@@ -22,6 +22,10 @@ export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
         enabled={enabled}
         resolver={{ ...__baseMaterials__, ...__antdMaterials__ }}
         onRender={RenderNodeWrapper}
+        indicator={{
+          success: '#3a8efe',
+          error: '#f95053',
+        }}
       >
         {/* 供予预览直接显示子组件 */}
         {isPreview ? (
