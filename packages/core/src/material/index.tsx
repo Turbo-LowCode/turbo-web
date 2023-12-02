@@ -1,8 +1,11 @@
 import { UserComponent, UserComponentConfig, useNode } from '@craftjs/core'
+import { useThrottleEffect } from 'ahooks'
 import { cloneDeepWith } from 'lodash'
 import { PropsWithChildren, forwardRef, useMemo } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { useSelector } from 'react-redux'
 import { browserRuntimeVM, isExpression, parseStrToLte } from '..'
+import { onUpdated, store } from '../context/store'
 
 export type ReactMaterialComponent = UserComponent
 
@@ -32,32 +35,46 @@ const FallbackRender = (props: any) => {
 const withConnectNode = (
   WrappedComponent: React.ForwardRefExoticComponent<React.RefAttributes<any> & PropsWithChildren>,
 ): ReactMaterialComponent => {
-  return function ({ children, __events = [], ...props }: Record<string, any>) {
+  return ({ children, __events = [], ...props }: Record<string, any>) => {
+    const materialStore: any = useSelector(state => state)
     const {
-      connectors: { connect, drag },
+      id,
       custom,
+      connectors: { connect, drag },
     } = useNode(state => ({
       custom: state.data.custom,
     }))
+
     const memoizedProps = useMemo(() => {
       const cloneProps = cloneDeepWith(props, val => {
         if (val && isExpression(val)) {
           console.log('执行代码:', val)
-          return browserRuntimeVM?.execute(parseStrToLte(val), { props })?.data
+          return browserRuntimeVM?.execute(parseStrToLte(val), { props, store: materialStore?.[id] })?.data
         }
       })
       return cloneProps
-    }, [props])
+    }, [props, materialStore, id])
+
+    // 监听节点是否绑定数据，绑定则上传到StoreProvider中
+    useThrottleEffect(() => {
+      if (props.$$store && Array.isArray(props.$$store)) {
+        store.dispatch(
+          onUpdated({
+            [id]: props.$$store.reduce((ans, item) => {
+              ans[item.name] = item.defaultVal
+              return ans
+            }, {}),
+          }),
+        )
+      }
+    }, [props.$$store])
 
     return (
       <ErrorBoundary fallbackRender={FallbackRender}>
         <WrappedComponent
           ref={dom => {
-            if (custom.useResize) {
-              return connect(dom)
-            } else {
-              return connect(drag(dom))
-            }
+            if (custom.useResize) return connect(dom)
+            return connect(drag(dom))
           }}
           {...memoizedProps}
         >

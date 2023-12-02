@@ -1,8 +1,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { merge } from 'lodash'
 
-const counterSlice = createSlice({
-  name: '@turbo-store-counter',
+const materialSlice = createSlice({
+  name: '@@turbolc-store',
   initialState: {
     test: 1,
   } as Record<string, any>,
@@ -14,8 +14,8 @@ const counterSlice = createSlice({
   },
 })
 
-// export const { onUpdated } = counterSlice.actions
+export const { onUpdated } = materialSlice.actions
 
 export const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: materialSlice.reducer,
 })

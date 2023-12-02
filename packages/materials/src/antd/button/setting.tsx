@@ -1,4 +1,4 @@
-import { FormSetter, toOptions } from '@turbolc/setter'
+import { BindStateManageSetter, FormSetter, toOptions } from '@turbolc/setter'
 import { Input, Segmented, Select, Switch } from 'antd'
 
 export const ButtonSetting = () => {
@@ -13,6 +13,7 @@ export const ButtonSetting = () => {
       >
         <Input />
       </FormSetter>
+      <BindStateManageSetter name='$$store' label='属性绑定' tooltip='自定义变量并可以绑定到value中' />
       <FormSetter
         fields={{
           name: 'href',
