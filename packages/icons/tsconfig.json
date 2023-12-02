@@ -1,10 +1,10 @@
 {
-  "extends": ["@turbolc/typescript-config"],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"] // 使用别名下的模块
-    }
-  },
-  "include": ["src"]
+	"extends": ["@turbolc/typescript-config"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+	"include": ["src"]
 }
