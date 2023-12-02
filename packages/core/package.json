@@ -6,7 +6,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "start": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "lint": "biome format . --write"
   },
   "devDependencies": {
     "@turbolc/eslint-config": "workspace:*",

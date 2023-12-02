@@ -6,10 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "lint:check": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx ./"
+    "lint": "biome format . --write"
   },
   "dependencies": {
     "@turbolc/core": "workspace:^"

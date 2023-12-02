@@ -5,5 +5,8 @@
   "main": "",
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "biome format . --write"
+  }
 }
