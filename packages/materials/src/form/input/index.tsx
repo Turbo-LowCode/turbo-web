@@ -6,10 +6,6 @@ export const __Input__ = createReactMaterial(
   InputView,
   {
     displayName: '输入框',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: InputSetting,
     },

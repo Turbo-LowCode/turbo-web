@@ -8,7 +8,6 @@ export const __Provider__ = createReactMaterial(
     displayName: 'Provider',
     custom: {
       useCanvas: true,
-      useResize: false,
     },
     related: {
       settingRender: ProviderSetting,

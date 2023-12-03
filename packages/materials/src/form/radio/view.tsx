@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormRadio> = {}
 
-export const RadioView: ReactMaterialViewType<ComponentProps<typeof ProFormRadio>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const RadioView: ReactMaterialViewType<ComponentProps<typeof ProFormRadio>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormRadio {...props} />

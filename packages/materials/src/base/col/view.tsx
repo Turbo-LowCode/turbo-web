@@ -1,7 +1,7 @@
 import { ReactMaterialViewType } from '@turbolc/core'
 import { Col, ColProps } from 'antd'
 import { PropsWithChildren } from 'react'
-import { Slot } from '../../common/Slot/Slot'
+import { Slot } from '../../components/Slot/Slot'
 
 export const defaultProps: ColProps & PropsWithChildren = {
   span: 4,

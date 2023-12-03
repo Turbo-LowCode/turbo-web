@@ -8,7 +8,6 @@ export const __FormItem__ = createReactMaterial(
     displayName: '表单元素',
     custom: {
       useCanvas: true,
-      useResize: true,
     },
     related: {
       settingRender: FormItemSetting,

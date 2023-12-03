@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormText> = {}
 
-export const InputView: ReactMaterialViewType<ComponentProps<typeof ProFormText>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const InputView: ReactMaterialViewType<ComponentProps<typeof ProFormText>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormText {...props} />

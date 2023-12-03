@@ -6,10 +6,6 @@ export const __Switch__ = createReactMaterial(
   SwitchView,
   {
     displayName: '开关',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: SwitchSetting,
     },

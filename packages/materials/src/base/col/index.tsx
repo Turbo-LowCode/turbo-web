@@ -8,7 +8,6 @@ export const __Col__ = createReactMaterial(
     displayName: '容器 - 列',
     custom: {
       useCanvas: true,
-      useResize: true,
     },
     related: {
       settingRender: ColSetting,

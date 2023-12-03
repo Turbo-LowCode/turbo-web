@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormCheckbox> = {}
 
-export const CheckboxView: ReactMaterialViewType<ComponentProps<typeof ProFormCheckbox>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const CheckboxView: ReactMaterialViewType<ComponentProps<typeof ProFormCheckbox>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormCheckbox {...props} />

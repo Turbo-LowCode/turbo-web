@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormSegmented> = {}
 
-export const SegmentView: ReactMaterialViewType<ComponentProps<typeof ProFormSegmented>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const SegmentView: ReactMaterialViewType<ComponentProps<typeof ProFormSegmented>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormSegmented {...props} />

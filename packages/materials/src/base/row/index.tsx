@@ -8,7 +8,6 @@ export const __Row__ = createReactMaterial(
     displayName: '容器 - 行',
     custom: {
       useCanvas: true,
-      useResize: true,
     },
     related: {
       settingRender: RowSetting,

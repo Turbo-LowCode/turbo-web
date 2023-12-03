@@ -6,10 +6,6 @@ export const __DateTimeRangePicker__ = createReactMaterial(
   DateTimeRangePickerView,
   {
     displayName: '日期时间区间',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: DateTimeRangePickerSetting,
     },

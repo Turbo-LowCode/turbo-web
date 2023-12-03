@@ -5,7 +5,7 @@ import { ComponentProps } from 'react'
 export const defaultProps: ComponentProps<typeof ProFormDateRangePicker> = {}
 
 export const DateRangePickerView: ReactMaterialViewType<ComponentProps<typeof ProFormDateRangePicker>> = (
-  { children, ...props },
+  props,
   ref: any,
 ) => {
   return (

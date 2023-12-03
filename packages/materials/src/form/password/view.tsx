@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormText.Password> = {}
 
-export const PasswordView: ReactMaterialViewType<ComponentProps<typeof ProFormText.Password>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const PasswordView: ReactMaterialViewType<ComponentProps<typeof ProFormText.Password>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormText.Password {...props} />

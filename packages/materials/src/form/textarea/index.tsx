@@ -6,10 +6,6 @@ export const __TextArea__ = createReactMaterial(
   TextAreaView,
   {
     displayName: '多行输入框',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: TextAreaSetting,
     },

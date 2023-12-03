@@ -6,9 +6,6 @@ export const __AntDImage__ = createReactMaterial(
   ImageView,
   {
     displayName: '图片',
-    custom: {
-      useResize: false,
-    },
     related: {
       settingRender: ImageSetting,
     },

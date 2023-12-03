@@ -6,10 +6,6 @@ export const __Segment__ = createReactMaterial(
   SegmentView,
   {
     displayName: '分段选择器',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: SegmentSetting,
     },

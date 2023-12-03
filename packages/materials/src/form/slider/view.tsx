@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormSlider> = {}
 
-export const SliderView: ReactMaterialViewType<ComponentProps<typeof ProFormSlider>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const SliderView: ReactMaterialViewType<ComponentProps<typeof ProFormSlider>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormSlider {...props} />

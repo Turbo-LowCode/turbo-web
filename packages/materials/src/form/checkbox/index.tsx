@@ -6,10 +6,6 @@ export const __Checkbox__ = createReactMaterial(
   CheckboxView,
   {
     displayName: '复选框',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: CheckboxSetting,
     },

@@ -6,10 +6,6 @@ export const __Number__ = createReactMaterial(
   NumberView,
   {
     displayName: '数字输入框',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: NumberSetting,
     },

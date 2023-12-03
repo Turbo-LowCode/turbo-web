@@ -6,10 +6,6 @@ export const __Slider__ = createReactMaterial(
   SliderView,
   {
     displayName: '滑动输入条',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: SliderSetting,
     },

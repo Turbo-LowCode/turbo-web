@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormDigit> = {}
 
-export const NumberView: ReactMaterialViewType<ComponentProps<typeof ProFormDigit>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const NumberView: ReactMaterialViewType<ComponentProps<typeof ProFormDigit>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormDigit {...props} />

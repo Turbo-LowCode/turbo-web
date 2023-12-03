@@ -6,10 +6,6 @@ export const __DateTimePicker__ = createReactMaterial(
   DateTimePickerView,
   {
     displayName: '日期时间',
-    custom: {
-      useCanvas: true,
-      useResize: true,
-    },
     related: {
       settingRender: DateTimePickerSetting,
     },

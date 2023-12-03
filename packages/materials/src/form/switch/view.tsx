@@ -4,10 +4,7 @@ import { ComponentProps } from 'react'
 
 export const defaultProps: ComponentProps<typeof ProFormSwitch> = {}
 
-export const SwitchView: ReactMaterialViewType<ComponentProps<typeof ProFormSwitch>> = (
-  { children, ...props },
-  ref: any,
-) => {
+export const SwitchView: ReactMaterialViewType<ComponentProps<typeof ProFormSwitch>> = (props, ref: any) => {
   return (
     <div ref={ref}>
       <ProFormSwitch {...props} />

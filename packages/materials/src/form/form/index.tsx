@@ -8,7 +8,6 @@ export const __Form__ = createReactMaterial(
     displayName: '表单',
     custom: {
       useCanvas: true,
-      useResize: true,
     },
     related: {
       settingRender: FormSetting,
