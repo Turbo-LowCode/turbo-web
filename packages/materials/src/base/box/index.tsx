@@ -5,7 +5,7 @@ import { BoxView, defaultProps } from './view'
 export const __Box__ = createReactMaterial(
   BoxView,
   {
-    displayName: 'Box',
+    displayName: '容器',
     custom: {
       useCanvas: true,
       useResize: true,

@@ -5,7 +5,7 @@ import { ColView, defaultProps } from './view'
 export const __Col__ = createReactMaterial(
   ColView,
   {
-    displayName: 'Col',
+    displayName: '容器 - 列',
     custom: {
       useCanvas: true,
       useResize: true,

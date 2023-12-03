@@ -5,7 +5,7 @@ import { RowView, defaultProps } from './view'
 export const __Row__ = createReactMaterial(
   RowView,
   {
-    displayName: 'Row',
+    displayName: '容器 - 行',
     custom: {
       useCanvas: true,
       useResize: true,

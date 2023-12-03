@@ -5,6 +5,10 @@ import { Slot } from '../../common/Slot'
 
 export const defaultProps: ColProps & PropsWithChildren = {
   span: 4,
+  pull: 0,
+  push: 0,
+  order: 0,
+  offset: 0,
 }
 
 export const ColView: ReactMaterialViewType<ColProps & PropsWithChildren> = ({ children, ...props }, ref: any) => {
