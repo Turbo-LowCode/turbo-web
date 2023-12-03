@@ -1,6 +1,6 @@
 import { createReactMaterial } from '@turbolc/core'
 import { ImageSetting } from './setting'
-import { ImageView } from './view'
+import { ImageView, defaultProps } from './view'
 
 export const __AntDImage__ = createReactMaterial(
   ImageView,
@@ -14,8 +14,6 @@ export const __AntDImage__ = createReactMaterial(
     },
   },
   {
-    src: '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a8c8cdb109cb051163646151a4a5083b.png~tplv-uwbnlip3yd-webp.webp',
-    height: 200,
-    width: 200,
+    ...defaultProps,
   },
 )

@@ -15,8 +15,8 @@ export const defaultProps: ButtonProps & { text: string } = {
 
 export const ButtonView: ReactMaterialViewType<ButtonProps & { text: string }> = ({ ...props }, ref: any) => {
   return (
-    <Button ref={ref} {...defaultProps} {...props}>
-      {props.text ?? defaultProps.text}
+    <Button ref={ref} {...props}>
+      {props.text}
     </Button>
   )
 }

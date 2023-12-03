@@ -98,6 +98,11 @@ export const createReactMaterial = <T = any>(
   // hoc的compose函数执行
   const forwardComponent = forwardRef<(dom: HTMLElement) => void, {}>(component)
   forwardComponent.defaultProps = defaultProps
+
+  config.props = {
+    ...defaultProps,
+    ...config.props,
+  }
   const MaterialNode: ReactMaterialComponent = withConnectNode(forwardComponent)
   MaterialNode.craft = config
 
