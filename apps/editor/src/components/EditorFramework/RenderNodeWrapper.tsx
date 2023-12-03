@@ -114,9 +114,9 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
               }}
             >
               <Typography.Text style={{ marginRight: 16, color: 'white' }}>{name}</Typography.Text>
-              {moveable && <DragOutlined ref={drag as any} />}
-              <ArrowUpOutlined onClick={handleToParent} />
-              <DeleteOutlined onClick={handleDelete} />
+              {moveable && <DragOutlined ref={drag as any} style={{ cursor: 'pointer' }} />}
+              <ArrowUpOutlined onClick={handleToParent} style={{ cursor: 'pointer' }} />
+              <DeleteOutlined onClick={handleDelete} style={{ cursor: 'pointer' }} />
             </div>,
             canvasDocument?.body as HTMLElement,
           )

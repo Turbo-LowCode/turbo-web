@@ -15,7 +15,7 @@ export const defaultProps: CardProps = {
   ),
   children: (
     <Element canvas id='card-title-children' is='div'>
-      <div>请添加组件</div>
+      请添加组件
     </Element>
   ),
 }
