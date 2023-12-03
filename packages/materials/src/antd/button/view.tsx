@@ -1,13 +1,22 @@
 import { ReactMaterialViewType } from '@turbolc/core'
 import { Button, ButtonProps } from 'antd'
 
-export const ButtonView: ReactMaterialViewType<ButtonProps & { text: string }> = (
-  { text = '默认填充', ...props },
-  ref: any,
-) => {
+export const defaultProps: ButtonProps & { text: string } = {
+  text: '按钮',
+  // BUG: 导致页面跳转
+  // href: '',
+  type: 'primary',
+  disabled: false,
+  loading: false,
+  shape: 'default',
+  htmlType: 'button',
+  size: 'middle',
+}
+
+export const ButtonView: ReactMaterialViewType<ButtonProps & { text: string }> = ({ ...props }, ref: any) => {
   return (
-    <Button ref={ref} {...props}>
-      {text}
+    <Button ref={ref} {...defaultProps} {...props}>
+      {props.text ?? defaultProps.text}
     </Button>
   )
 }

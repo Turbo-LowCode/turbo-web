@@ -1,6 +1,6 @@
 import { createReactMaterial } from '@turbolc/core'
 import { ButtonSetting } from './setting'
-import { ButtonView } from './view'
+import { ButtonView, defaultProps } from './view'
 
 export const __AntDButton__ = createReactMaterial(ButtonView, {
   displayName: '按钮',
@@ -9,5 +9,9 @@ export const __AntDButton__ = createReactMaterial(ButtonView, {
   },
   related: {
     settingRender: ButtonSetting,
+  },
+  props: {
+    ...defaultProps,
+    href: '',
   },
 })

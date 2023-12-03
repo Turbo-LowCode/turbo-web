@@ -54,10 +54,10 @@ export const ButtonSetting = () => {
         fields={{
           name: 'shape',
           label: '形状',
-          tooltip: '按钮形状，circle - 圆形， round - 全圆角， square - 长方形',
+          tooltip: '按钮形状，circle - 圆形， round - 全圆角， default - 长方形',
         }}
       >
-        <Segmented options={['circle', 'round', 'square']} />
+        <Segmented options={['circle', 'round', 'default']} />
       </FormSetter>
       <FormSetter
         fields={{
@@ -75,7 +75,7 @@ export const ButtonSetting = () => {
           tooltip: '按钮的尺寸',
         }}
       >
-        <Segmented options={['mini', 'small', 'default', 'large']} />
+        <Segmented options={['small', 'middle', 'large']} />
       </FormSetter>
     </div>
   )
