@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { FormView, defaultProps } from './view'
 
 const meta = {
-  title: 'Base/Form',
+  title: 'Form/Form',
   component: FormView,
   parameters: {
     layout: 'centered',

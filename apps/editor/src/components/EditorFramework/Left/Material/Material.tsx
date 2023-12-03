@@ -2,22 +2,33 @@ import { __antdMaterials__, __baseMaterials__, __formMaterials__ } from '@turbol
 import { Divider, Space, Typography } from 'antd'
 import { MaterialList } from './MaterialList'
 
+const list = [
+  {
+    title: '基础组件',
+    materials: __baseMaterials__,
+  },
+  {
+    title: 'AntD 组件',
+    materials: __antdMaterials__,
+  },
+  {
+    title: '表单 组件',
+    materials: __formMaterials__,
+  },
+]
+
 export const Material = () => {
   return (
     <div>
-      <Space className='w-full' size={12} direction='vertical'>
-        <Typography.Text type='secondary'>基础组件</Typography.Text>
-        <MaterialList materials={__baseMaterials__} />
-      </Space>
-      <Divider />
-      <Space className='w-full' size={12} direction='vertical'>
-        <Typography.Text type='secondary'>AntD 组件</Typography.Text>
-        <MaterialList materials={__antdMaterials__} />
-      </Space>
-      <Space className='w-full' size={12} direction='vertical'>
-        <Typography.Text type='secondary'>表单 组件</Typography.Text>
-        <MaterialList materials={__formMaterials__} />
-      </Space>
+      {list.map(item => (
+        <>
+          <Space className='w-full' size={12} direction='vertical'>
+            <Typography.Text type='secondary'>{item.title}</Typography.Text>
+            <MaterialList materials={item.materials} />
+          </Space>
+          <Divider />
+        </>
+      ))}
     </div>
   )
 }

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { FormItemView, defaultProps } from './view'
+import { SliderView, defaultProps } from './view'
 
 const meta = {
-  title: 'Form/FormItem',
-  component: FormItemView,
+  title: 'Form/Slider',
+  component: SliderView,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof FormItemView>
+} satisfies Meta<typeof SliderView>
 
 export default meta
 

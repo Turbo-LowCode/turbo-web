@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { FormItemView, defaultProps } from './view'
+import { DateTimeRangePickerView, defaultProps } from './view'
 
 const meta = {
-  title: 'Form/FormItem',
-  component: FormItemView,
+  title: 'Form/DateTimeRangePicker',
+  component: DateTimeRangePickerView,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof FormItemView>
+} satisfies Meta<typeof DateTimeRangePickerView>
 
 export default meta
 

@@ -5,7 +5,7 @@ import { InputView, defaultProps } from './view'
 export const __Input__ = createReactMaterial(
   InputView,
   {
-    displayName: '文本输入框',
+    displayName: '输入框',
     custom: {
       useCanvas: true,
       useResize: true,

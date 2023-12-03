@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { InputView, defaultProps } from './view'
 
 const meta = {
-  title: 'Base/Input',
+  title: 'Form/Input',
   component: InputView,
   parameters: {
     layout: 'centered',

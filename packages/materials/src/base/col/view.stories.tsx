@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ColView, defaultProps } from './view'
 
 const meta = {
-  title: 'Base/Row',
+  title: 'Base/Col',
   component: ColView,
   parameters: {
     layout: 'centered',
