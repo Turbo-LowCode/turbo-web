@@ -1,14 +1,20 @@
 import { createReactMaterial } from '@turbolc/core'
 import { ProviderSetting } from './setting'
-import { ProviderView } from './view'
+import { ProviderView, defaultProps } from './view'
 
-export const __Provider__ = createReactMaterial(ProviderView, {
-  displayName: 'Provider',
-  custom: {
-    useCanvas: true,
-    useResize: false,
+export const __Provider__ = createReactMaterial(
+  ProviderView,
+  {
+    displayName: 'Provider',
+    custom: {
+      useCanvas: true,
+      useResize: false,
+    },
+    related: {
+      settingRender: ProviderSetting,
+    },
   },
-  related: {
-    settingRender: ProviderSetting,
+  {
+    ...defaultProps,
   },
-})
+)

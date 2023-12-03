@@ -1,6 +1,6 @@
 import { createReactMaterial } from '@turbolc/core'
 import { BoxSetting } from './setting'
-import { BoxView } from './view'
+import { BoxView, defaultProps } from './view'
 
 export const __Box__ = createReactMaterial(
   BoxView,
@@ -15,9 +15,6 @@ export const __Box__ = createReactMaterial(
     },
   },
   {
-    size: {
-      width: 'auto',
-      height: '120px',
-    },
+    ...defaultProps,
   },
 )

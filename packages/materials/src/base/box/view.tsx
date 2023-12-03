@@ -8,9 +8,16 @@ const initialStyle: React.CSSProperties = {
   height: 12,
   width: 12,
   borderRadius: '50%',
-  border: `2px solid rgb(26, 115, 232)`,
+  border: '2px solid rgb(26, 115, 232)',
   background: '#FFF',
   zIndex: 2,
+}
+
+export const defaultProps: ResizableProps & PropsWithChildren = {
+  size: {
+    width: 'auto',
+    height: '120px',
+  },
 }
 
 export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> = (
