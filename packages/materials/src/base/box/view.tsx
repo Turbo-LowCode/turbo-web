@@ -5,11 +5,8 @@ import { Resizable, ResizableProps } from 're-resizable'
 import React, { PropsWithChildren } from 'react'
 
 const initialStyle: React.CSSProperties = {
-  height: 12,
-  width: 12,
-  borderRadius: '50%',
-  border: '2px solid rgb(26, 115, 232)',
-  background: '#FFF',
+  borderRadius: 200,
+  background: 'rgb(26, 115, 232)',
   zIndex: 2,
 }
 
@@ -25,7 +22,6 @@ export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> 
   ref: any,
 ) => {
   const { id } = useNode()
-
   const {
     actions: { setProp },
     isActive,
@@ -64,13 +60,17 @@ export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> 
       handleStyles={{
         bottom: {
           ...initialStyle,
-          bottom: -6,
+          height: 4,
+          width: 30,
+          bottom: -2,
           left: '50%',
           transform: 'translateX(-50%)',
         },
         right: {
           ...initialStyle,
-          right: -6,
+          height: 30,
+          width: 4,
+          right: -2,
           top: '50%',
           transform: 'translateY(-50%)',
         },

@@ -12,8 +12,6 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@turbolc/eslint-config": "workspace:*",
-    "@turbolc/typescript-config": "workspace:*",
     "@storybook/addon-essentials": "7.6.3",
     "@storybook/addon-interactions": "7.6.3",
     "@storybook/addon-links": "7.6.3",
@@ -22,6 +20,8 @@
     "@storybook/react": "7.6.3",
     "@storybook/react-vite": "7.6.3",
     "@storybook/test": "7.6.3",
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*",
     "storybook": "7.6.3"
   },
   "dependencies": {
