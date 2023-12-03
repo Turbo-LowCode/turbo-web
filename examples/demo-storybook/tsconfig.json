@@ -1,0 +1,10 @@
+{
+  "extends": ["@turbolc/typescript-config"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

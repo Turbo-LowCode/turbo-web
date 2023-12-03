@@ -1,0 +1,33 @@
+{
+  "name": "demo-storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "tsup --watch",
+    "build": "tsup",
+    "lint": "biome format . --write",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*",
+    "@storybook/addon-essentials": "7.6.3",
+    "@storybook/addon-interactions": "7.6.3",
+    "@storybook/addon-links": "7.6.3",
+    "@storybook/addon-onboarding": "1.0.9",
+    "@storybook/blocks": "7.6.3",
+    "@storybook/react": "7.6.3",
+    "@storybook/react-vite": "7.6.3",
+    "@storybook/test": "7.6.3",
+    "storybook": "7.6.3"
+  },
+  "dependencies": {
+    "@turbolc/core": "workspace:*",
+    "@turbolc/setter": "workspace:*",
+    "re-resizable": "^6.9.11",
+    "react-error-boundary": "^4.0.11"
+  }
+}
