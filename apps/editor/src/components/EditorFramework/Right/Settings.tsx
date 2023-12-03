@@ -38,6 +38,7 @@ export const Settings = () => {
     }
   })
 
+  // 监听Setting区变化
   const handleFormChange = (values: any) => {
     if (nodeId) {
       setProp(nodeId, props => {

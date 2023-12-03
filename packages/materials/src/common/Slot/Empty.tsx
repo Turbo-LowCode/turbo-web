@@ -1,7 +1,7 @@
 import { Typography } from 'antd'
 import { FC, PropsWithChildren } from 'react'
 
-export const Slot: FC<PropsWithChildren> = ({ children = '当前为插槽容器，打开右侧属性面板可以替换当前坑位。' }) => {
+export const Empty: FC<PropsWithChildren> = ({ children = '当前为插槽容器，打开右侧属性面板可以替换当前坑位。' }) => {
   return (
     <div
       style={{
