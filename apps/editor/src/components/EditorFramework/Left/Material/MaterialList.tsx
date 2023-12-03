@@ -55,7 +55,8 @@ export const MaterialList: FC<MaterialListProps> = ({ materials }) => {
             ref={(ref: HTMLDivElement) => {
               if (ref) {
                 // 拖拽时创建物料元素
-                connectors.create(ref, useCanvas ? <Canvas canvas is={value} /> : createElement(value))
+                if (useCanvas) connectors.create(ref, <Canvas canvas is={value} />)
+                else connectors.create(ref, createElement(value))
               }
             }}
           >

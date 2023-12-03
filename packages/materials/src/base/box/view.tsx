@@ -2,13 +2,7 @@ import { useEditor, useNode } from '@craftjs/core'
 import { ReactMaterialViewType } from '@turbolc/core'
 import { useThrottleFn } from 'ahooks'
 import { Resizable, ResizableProps } from 're-resizable'
-import React, { PropsWithChildren } from 'react'
-
-const initialStyle: React.CSSProperties = {
-  borderRadius: 200,
-  background: 'rgb(26, 115, 232)',
-  zIndex: 2,
-}
+import { PropsWithChildren } from 'react'
 
 export const defaultProps: ResizableProps & PropsWithChildren = {
   size: {
@@ -59,7 +53,9 @@ export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> 
       onResizeStop={handleResizableChange}
       handleStyles={{
         bottom: {
-          ...initialStyle,
+          borderRadius: 200,
+          background: 'rgb(26, 115, 232)',
+          zIndex: 2,
           height: 4,
           width: 30,
           bottom: -2,
@@ -67,7 +63,9 @@ export const BoxView: ReactMaterialViewType<ResizableProps & PropsWithChildren> 
           transform: 'translateX(-50%)',
         },
         right: {
-          ...initialStyle,
+          borderRadius: 200,
+          background: 'rgb(26, 115, 232)',
+          zIndex: 2,
           height: 30,
           width: 4,
           right: -2,

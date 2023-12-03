@@ -164,6 +164,9 @@ importers:
 
   packages/core:
     dependencies:
+      re-resizable:
+        specifier: ^6.9.11
+        version: 6.9.11(react-dom@18.2.0)(react@18.2.0)
       react-error-boundary:
         specifier: ^4.0.11
         version: 4.0.11(react@18.2.0)
