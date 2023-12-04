@@ -1,7 +1,8 @@
 import { ReactMaterialViewType } from '@turbolc/core'
 import { Col, ColProps } from 'antd'
 import { PropsWithChildren } from 'react'
-import { Slot } from '../../components/Slot/Slot'
+import { Element } from '@craftjs/core'
+import { __Slot__ } from '../../common'
 
 export const defaultProps: ColProps & PropsWithChildren = {
   span: 4,
@@ -14,7 +15,9 @@ export const defaultProps: ColProps & PropsWithChildren = {
 export const ColView: ReactMaterialViewType<ColProps & PropsWithChildren> = ({ children, ...props }, ref: any) => {
   return (
     <Col ref={ref} {...props}>
-      <Slot>{children}</Slot>
+      <Element id='card-title-children' is={__Slot__} canvas>
+        {children}
+      </Element>
     </Col>
   )
 }

@@ -1,7 +1,7 @@
 import { Element } from '@craftjs/core'
 import { ReactMaterialViewType } from '@turbolc/core'
 import { Card, CardProps } from 'antd'
-import { __Slot__ } from '../../common/slot'
+import { __Slot__ } from '../../common'
 
 export const defaultProps: CardProps = {}
 
@@ -13,7 +13,6 @@ export const CardView: ReactMaterialViewType<CardProps> = ({ children, ...props 
       extra={<Element id='card-title-extra' is={__Slot__} canvas message='额外空间' />}
       {...props}
     >
-      {/* {children ? children : <Element id='card-title-children' is={__Slot__} canvas message='请添加组件' />} */}
       <Element id='card-title-children' is={__Slot__} canvas message='请添加组件'>
         {children}
       </Element>

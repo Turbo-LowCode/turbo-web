@@ -15,5 +15,6 @@ export const SlotView: ReactMaterialViewType<SlotProps> = ({ message, children }
 
   const emptyRender = frameworkContext?.enabled ? <Empty>{message}</Empty> : null
 
-  return <div ref={ref}>{children ? children : emptyRender}</div>
+  // return <div ref={ref}>{children ? children : emptyRender}</div>
+  return children ? children : <div ref={ref}>{emptyRender}</div>
 }
