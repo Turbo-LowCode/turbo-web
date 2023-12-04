@@ -10,13 +10,18 @@ export interface RenderNodeWrapperProps {
   render: React.ReactElement
 }
 
+// 过滤一些不需要渲染的物料节点
+const filterRenderNode = ['__Slot__']
+
 export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) => {
   const currentRef = useRef<HTMLDivElement>(null)
   const { id } = useNode()
-  const { query, isActive, isHover, actions } = useEditor((state, query) => {
+  const { query, isActive, isHover, actions, isFilterNode } = useEditor((state, query) => {
+    const node = state.nodes[id]
     const [selectNodeId] = state.events.selected
     const [hoverNodeId] = state.events.hovered
     const [dragNodeId] = state.events.dragged
+
     return {
       isActive: query.getEvent('selected').contains(id),
       isHover: query.getEvent('hovered').contains(id),
@@ -24,6 +29,7 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
       selectNodeId,
       hoverNodeId,
       dragNodeId,
+      isFilterNode: filterRenderNode.includes(node.data.name),
     }
   })
   const {
@@ -91,7 +97,7 @@ export const RenderNodeWrapper: React.FC<RenderNodeWrapperProps> = ({ render }) 
 
   return (
     <>
-      {isHover || isActive
+      {!isFilterNode && (isHover || isActive)
         ? ReactDOM.createPortal(
             // 物料的提示框
             <div
