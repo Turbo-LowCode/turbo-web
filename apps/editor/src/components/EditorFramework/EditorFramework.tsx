@@ -1,5 +1,5 @@
 import { EditorRefProps, FrameworkContextProvider, FrameworkProviderProps } from '@turbolc/core'
-import { __antdMaterials__, __baseMaterials__, __formMaterials__ } from '@turbolc/materials'
+import { __antdMaterials__, __baseMaterials__, __formMaterials__, __commonMaterials__ } from '@turbolc/materials'
 import { forwardRef } from 'react'
 import { Canvas } from './Canvas/Canvas'
 import { DocumentFrame } from './Canvas/DocumentFrame'
@@ -20,7 +20,7 @@ export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
       <FrameworkContextProvider
         ref={ref}
         enabled={enabled}
-        resolver={{ ...__baseMaterials__, ...__antdMaterials__, ...__formMaterials__ }}
+        resolver={{ ...__baseMaterials__, ...__antdMaterials__, ...__formMaterials__, ...__commonMaterials__ }}
         onRender={RenderNodeWrapper}
         indicator={{
           success: '#3a8efe',
