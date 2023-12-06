@@ -3,21 +3,8 @@
  */
 
 import { BrowserRuntimeVMWindow, ExecuteResult, InjectVMVarsType } from '@/types'
-import { RuntimeVMId } from '..'
-
-export const createRuntimeVM = () => {
-  let iframe = document.getElementById(RuntimeVMId) as HTMLIFrameElement
-  if (!iframe) {
-    iframe = document.createElement('iframe')
-    // iframe 中的脚本只能访问与主文档具有相同源的内容，并且只能运行;JavaScript 脚本。
-    // 这可以保证 iframe 与主文档之间的安全隔离，防止 iframe 中的恶意脚本影响主文档
-    iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts')
-    iframe.style.display = 'none'
-    iframe.id = RuntimeVMId
-    document.documentElement.appendChild(iframe)
-  }
-  return iframe
-}
+import { createRuntimeVM, evalWrapper } from '..'
+import { RuntimeVMId } from '../utils/const'
 
 class BrowserRuntimeVM {
   private iframe: HTMLIFrameElement | null = null
@@ -27,7 +14,7 @@ class BrowserRuntimeVM {
   }
 
   private createIFrame() {
-    this.iframe = createRuntimeVM()
+    this.iframe = createRuntimeVM(RuntimeVMId)
   }
 
   private executeCode(code: string, globalScope: InjectVMVarsType) {
@@ -37,13 +24,7 @@ class BrowserRuntimeVM {
     sandbox.__INJECT_VARS__ = globalScope
 
     // eval 创造一个沙盒环境去执行代码
-    return sandbox.eval(`
-      (() => {
-        with (window.__INJECT_VARS__) {
-          return (${code})
-        }
-      })()
-    `)
+    return sandbox.eval(evalWrapper(code))
   }
 
   execute(code: string, globalScope: InjectVMVarsType): ExecuteResult {

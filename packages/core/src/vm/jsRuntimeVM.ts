@@ -2,7 +2,7 @@
  * 用于 JS Module 执行
  */
 
-import { JSRuntimeCtxId, compileModuleResolve, transformCode } from '..'
+import { JSRuntimeCtxId, compileModuleResolve, createRuntimeVM, evalWrapper, transformCode } from '..'
 
 export type InjectVMVarsType = Record<string, unknown>
 
@@ -33,24 +33,13 @@ const initScopeData: JSRuntimeVMScopeType = {
  * 连接到 JS Runtime 上下文
  */
 export const connectJSRuntimeVM = () => {
-  let iframe = document.getElementById(JSRuntimeCtxId) as HTMLIFrameElement
+  const iframe = createRuntimeVM(JSRuntimeCtxId)
+  const sandbox = iframe.contentWindow as JSRuntimeVMWindow
+  if (!sandbox.turboScope) sandbox.turboScope = initScopeData
 
-  try {
-    if (!iframe) {
-      iframe = document.createElement('iframe')
-      iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts')
-      iframe.style.display = 'none'
-      iframe.id = JSRuntimeCtxId
-      document.documentElement.appendChild(iframe)
-      const sandbox = iframe.contentWindow as JSRuntimeVMWindow
-      sandbox.turboScope = initScopeData
-    }
-    return {
-      ref: iframe,
-      sandbox: iframe.contentWindow as JSRuntimeVMWindow,
-    }
-  } catch (error) {
-    throw new Error('[turbo]: connectRuntimeVM fail...')
+  return {
+    iframe,
+    sandbox,
   }
 }
 
@@ -60,20 +49,12 @@ export const connectJSRuntimeVM = () => {
 export const executeJSModule = (code: string, globalScope?: InjectVMVarsType): ExecuteResult => {
   try {
     const { sandbox } = connectJSRuntimeVM()
-
     sandbox.__INJECT_VARS__ = globalScope
 
-    const value = sandbox.eval(`
-        (() => {
-          with (window.__INJECT_VARS__) {
-            return (${code})
-          }
-        })()
-      `)
-
+    const value = sandbox.eval(evalWrapper(code))
     return { value, success: true, error: null }
   } catch (error) {
-    return { success: false, error, value: null }
+    return { error, success: false, value: null }
   }
 }
 
@@ -89,4 +70,14 @@ export const mountJSModule = async (code: string) => {
     sandbox.turboScope.jsModule = module.exports
     console.log('JS模块挂载成功')
   }
+}
+
+export const getTurboScopeJsModule = () => {
+  const { sandbox } = connectJSRuntimeVM()
+  return sandbox.turboScope.jsModule
+}
+
+export const getTurboScopeDependencies = () => {
+  const { sandbox } = connectJSRuntimeVM()
+  return sandbox.turboScope.dependencies
 }
