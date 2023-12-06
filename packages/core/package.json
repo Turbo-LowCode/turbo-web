@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "@turbolc/eslint-config": "workspace:*",
-    "@turbolc/typescript-config": "workspace:*"
+    "@turbolc/typescript-config": "workspace:*",
+    "sucrase": "^3.34.0"
   },
   "dependencies": {
     "re-resizable": "^6.9.11",

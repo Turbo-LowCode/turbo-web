@@ -4,6 +4,7 @@ import { message } from 'antd'
 import { FC, useRef } from 'react'
 import { CodeEditor } from '../../common/CodeEditor/CodeEditor'
 import { useSchemaStore } from '../../stores/schema'
+import { compileModuleResolve, transformCode } from '@turbolc/core'
 
 export interface JSEditorProps {
   trigger: React.ReactElement
@@ -43,7 +44,12 @@ export const JSEditor: FC<JSEditorProps> = ({ trigger }) => {
   const onBuilderJSCode = async () => {
     const code = editorRef.current?.getValue()
     setJsModuleCode(code ?? '')
+    // BUG: 不生效
     message.success('保存成功')
+
+    const bundleCode = await transformCode(code ?? '')
+    console.log(bundleCode)
+    console.log(compileModuleResolve(bundleCode ?? ''))
   }
 
   return (

@@ -1,12 +1,13 @@
-import { EditorRefProps, FrameworkContextProvider, FrameworkProviderProps } from '@turbolc/core'
-import { __antdMaterials__, __baseMaterials__, __formMaterials__, __commonMaterials__ } from '@turbolc/materials'
-import { forwardRef } from 'react'
+import { EditorRefProps, FrameworkContextProvider, FrameworkProviderProps, mountJSModule } from '@turbolc/core'
+import { __antdMaterials__, __baseMaterials__, __commonMaterials__, __formMaterials__ } from '@turbolc/materials'
+import { forwardRef, useEffect } from 'react'
 import { Canvas } from './Canvas/Canvas'
 import { DocumentFrame } from './Canvas/DocumentFrame'
 import { Header } from './Header/Header'
 import { Left } from './Left/Left'
 import { RenderNodeWrapper } from './RenderNodeWrapper'
 import { Right } from './Right/Right'
+import { useSchemaStore } from './stores/schema'
 
 export type FrameworkProps = FrameworkProviderProps & {
   schema?: string
@@ -16,6 +17,13 @@ export type FrameworkProps = FrameworkProviderProps & {
 
 export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
   ({ enabled = true, isPreview = false }, ref) => {
+    const jsModuleCode = useSchemaStore(state => state.jsModuleCode)
+
+    // 初始化js模块
+    useEffect(() => {
+      mountJSModule(jsModuleCode)
+    }, [jsModuleCode])
+
     return (
       <FrameworkContextProvider
         ref={ref}
