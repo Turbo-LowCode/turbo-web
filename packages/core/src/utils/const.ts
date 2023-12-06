@@ -5,4 +5,7 @@ export const CanvasRootId = '__TurboEditorPreview__'
 export const ScopeModuleId = '__TurboBuilderScope__'
 
 /** 代码运行时的ID */
-export const RuntimeCtxId = '__TurboRuntime__'
+export const RuntimeVMId = '__TurboRuntimeVM__'
+
+/** JS运行时的ID */
+export const JSRuntimeCtxId = '__TurboRuntimeCtx__'
