@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { TableView, defaultProps } from './view'
+import { ProTableView, defaultProps } from './view'
 
 const meta = {
-  title: 'Form/Table',
-  component: TableView,
+  title: 'Form/ProTable',
+  component: ProTableView,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof TableView>
+} satisfies Meta<typeof ProTableView>
 
 export default meta
 

@@ -1,71 +1,16 @@
 import { ProTable } from '@ant-design/pro-components'
 import { ReactMaterialViewType } from '@turbolc/core'
-import { SortOrder } from 'antd/es/table/interface'
+import { Tag } from 'antd'
 import { ComponentProps } from 'react'
 
-type RequestType<T = unknown> = (
-  params: {
-    pageSize?: number
-    current?: number
-  },
-  sort: Record<string, SortOrder>,
-  filter: Record<string, (string | number)[] | null>,
-) => Promise<{
-  success: boolean
-  data: T[]
-  total: number
-}>
-
-interface TableProps extends ComponentProps<typeof ProTable> {
-  searchFields?: any
-}
-
-export const defaultProps: TableProps = {
+export const defaultProps: ComponentProps<typeof ProTable> = {
+  defaultData: [],
   params: {},
   request: async (params: any) => {
     const res = await fetch('https://proapi.azurewebsites.net/github/issues')
-    console.log('🚀 ~ file: view.tsx:30 ~ request: ~ res:', res)
     const data = await res.json()
     return data
   },
-  searchFields: [
-    {
-      label: '标题',
-      field: 'title',
-      componentProps: {
-        options: [],
-        placeholder: '请输入标题',
-      },
-      componentType: 'Input',
-    },
-    {
-      label: '标题',
-      field: 'title',
-      componentProps: {
-        options: [],
-        placeholder: '请输入标题',
-      },
-      componentType: 'Input',
-    },
-    {
-      label: '标题',
-      field: 'title',
-      componentProps: {
-        options: [],
-        placeholder: '请输入标题',
-      },
-      componentType: 'Input',
-    },
-    {
-      label: '标题',
-      field: 'title',
-      componentProps: {
-        options: [],
-        placeholder: '请输入标题',
-      },
-      componentType: 'Input',
-    },
-  ],
   columns: [
     {
       title: 'ID',
@@ -76,6 +21,13 @@ export const defaultProps: TableProps = {
       dataIndex: 'title',
     },
     {
+      title: '标签',
+      dataIndex: 'label',
+      render(dom, entity, index, action, schema) {
+        return <Tag color={entity.labels[0].color}>{entity.labels[0].name}</Tag>
+      },
+    },
+    {
       title: '创建时间',
       key: 'showTime',
       dataIndex: 'created_at',
@@ -83,10 +35,10 @@ export const defaultProps: TableProps = {
   ],
 }
 
-export const TableView: ReactMaterialViewType<TableProps> = (props, ref: any) => {
+export const ProTableView: ReactMaterialViewType<ComponentProps<typeof ProTable>> = (props, ref: any) => {
   return (
     <div ref={ref}>
-      <ProTable tableStyle={{ height: 500, overflow: 'scroll' }} {...props} />
+      <ProTable tableStyle={{ height: 500, overflowY: 'scroll' }} {...props} />
     </div>
   )
 }

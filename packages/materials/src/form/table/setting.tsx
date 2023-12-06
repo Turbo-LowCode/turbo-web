@@ -1,3 +1,3 @@
-export const TableSetting = () => {
-  return <div>TableSetting</div>
+export const ProTableSetting = () => {
+  return <div>ProTableSetting</div>
 }

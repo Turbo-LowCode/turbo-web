@@ -1,13 +1,13 @@
 import { createReactMaterial } from '@turbolc/core'
-import { TableSetting } from './setting'
-import { TableView, defaultProps } from './view'
+import { ProTableSetting } from './setting'
+import { ProTableView, defaultProps } from './view'
 
-export const __Table__ = createReactMaterial(
-  TableView,
+export const __ProTable__ = createReactMaterial(
+  ProTableView,
   {
     displayName: '高阶表格',
     related: {
-      settingRender: TableSetting,
+      settingRender: ProTableSetting,
     },
   },
   {
