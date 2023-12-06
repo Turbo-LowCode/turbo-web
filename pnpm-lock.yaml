@@ -177,6 +177,9 @@ importers:
       '@turbolc/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      sucrase:
+        specifier: ^3.34.0
+        version: 3.34.0
 
   packages/eslint-config:
     devDependencies:
