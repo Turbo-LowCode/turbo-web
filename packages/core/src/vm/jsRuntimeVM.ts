@@ -2,9 +2,16 @@
  * 用于 JS Module 执行
  */
 
-import { JSRuntimeCtxId, compileModuleResolve, createRuntimeVM, evalWrapper, transformCode } from '..'
-
-export type InjectVMVarsType = Record<string, unknown>
+import {
+  ExecuteResult,
+  InjectVMVarsType,
+  JSRuntimeCtxId,
+  compileModuleResolve,
+  createRuntimeVM,
+  evalWrapper,
+  transformCode,
+} from '..'
+import { logger } from '../utils'
 
 export interface JSRuntimeVMScopeType {
   jsModule: InjectVMVarsType
@@ -16,12 +23,6 @@ interface JSRuntimeVMWindow extends Window {
   logger: typeof console // 日志打印函数
   eval: typeof window.eval // eval的函数声明
   turboScope: JSRuntimeVMScopeType // turbolc
-}
-
-export interface ExecuteResult {
-  value: any
-  error: any
-  success: boolean
 }
 
 const initScopeData: JSRuntimeVMScopeType = {
@@ -51,10 +52,10 @@ export const executeJSModule = (code: string, globalScope?: InjectVMVarsType): E
     const { sandbox } = connectJSRuntimeVM()
     sandbox.__INJECT_VARS__ = globalScope
 
-    const value = sandbox.eval(evalWrapper(code))
-    return { value, success: true, error: null }
+    const data = sandbox.eval(evalWrapper(code))
+    return { data, success: true, error: null }
   } catch (error) {
-    return { error, success: false, value: null }
+    return { error, success: false, data: null }
   }
 }
 
@@ -66,9 +67,9 @@ export const mountJSModule = async (code: string) => {
   const cjsCode = await transformCode(code)
   if (cjsCode) {
     const module = compileModuleResolve(cjsCode, sandbox.turboScope.dependencies)
-    console.log(module, 'module')
+    logger.info('module', module)
     sandbox.turboScope.jsModule = module.exports
-    console.log('JS模块挂载成功')
+    logger.info('JS模块挂载成功')
   }
 }
 

@@ -1,3 +1,4 @@
+import { logger } from '@/utils'
 import { useEditor } from '@craftjs/core'
 import { Card, Form, Typography } from 'antd'
 import { createStyles } from 'antd-style'
@@ -50,7 +51,7 @@ export const Settings = () => {
 
   useEffect(() => {
     if (nodeId) {
-      console.log('currentNodeId', nodeId, props)
+      logger.info('currentNodeId', nodeId, props)
 
       // 切换组件清除setter配置，并设置新组件内容属性配置
       form.resetFields()

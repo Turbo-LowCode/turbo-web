@@ -10,7 +10,6 @@ export const Preview = () => {
   const [isExist, setIsExist] = useState(true)
 
   useEffect(() => {
-    console.log('🚀 ~ file: Preview.tsx:14 ~ useEffect ~ pageId:', pageId)
     if (pageId) {
       const schema = sessionStorage.getItem(pageId)
       if (editorFrameworkRef?.current && schema) {

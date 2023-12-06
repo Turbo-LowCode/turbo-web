@@ -4,7 +4,6 @@ import { createElement } from 'react'
 
 const SettingPanel = () => {
   const { selected } = useEditor(state => {
-    // console.log('🚀 ~ file: SettingPanel.tsx:7 ~ SettingPanel ~ state:', state)
     const [currentNodeId] = state.events.selected
     let selected
 

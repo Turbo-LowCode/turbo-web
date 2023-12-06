@@ -2,9 +2,14 @@
  * 用于 模板字符串解析 执行
  */
 
-import { BrowserRuntimeVMWindow, ExecuteResult, InjectVMVarsType } from '@/types'
+import { ExecuteResult, InjectVMVarsType } from '@/types'
 import { createRuntimeVM, evalWrapper } from '..'
 import { RuntimeVMId } from '../utils/const'
+
+interface BrowserRuntimeVMWindow extends Window {
+  __INJECT_VARS__?: InjectVMVarsType
+  eval: typeof window.eval
+}
 
 class BrowserRuntimeVM {
   private iframe: HTMLIFrameElement | null = null

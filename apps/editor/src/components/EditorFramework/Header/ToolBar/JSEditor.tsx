@@ -1,10 +1,11 @@
+import { logger } from '@/utils'
 import { ModalForm, ProCard } from '@ant-design/pro-components'
 import type { OnMount } from '@monaco-editor/react'
+import { compileModuleResolve, transformCode } from '@turbolc/core'
 import { message } from 'antd'
 import { FC, useRef } from 'react'
 import { CodeEditor } from '../../common/CodeEditor/CodeEditor'
 import { useSchemaStore } from '../../stores/schema'
-import { compileModuleResolve, transformCode } from '@turbolc/core'
 
 export interface JSEditorProps {
   trigger: React.ReactElement
@@ -48,8 +49,8 @@ export const JSEditor: FC<JSEditorProps> = ({ trigger }) => {
     message.success('保存成功')
 
     const bundleCode = await transformCode(code ?? '')
-    console.log(bundleCode)
-    console.log(compileModuleResolve(bundleCode ?? ''))
+    logger.info(bundleCode)
+    logger.info(compileModuleResolve(bundleCode ?? ''))
   }
 
   return (

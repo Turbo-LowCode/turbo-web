@@ -4,7 +4,7 @@ import { cloneDeepWith } from 'lodash'
 import { PropsWithChildren, forwardRef, useMemo } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useSelector } from 'react-redux'
-import { browserRuntimeVM, isExpression, parseStrToLte } from '..'
+import { browserRuntimeVM, isExpression, logger, parseStrToLte } from '..'
 import { onUpdated, store } from '../context/store'
 
 export type ReactMaterialComponent = UserComponent
@@ -48,7 +48,7 @@ const withConnectNode = (
     const memoizedProps = useMemo(() => {
       const cloneProps = cloneDeepWith(props, val => {
         if (val && isExpression(val)) {
-          console.log('执行代码:', val)
+          logger.info('执行代码:', val)
           return browserRuntimeVM?.execute(parseStrToLte(val), { props, store: materialStore?.[id] })?.data
         }
       })

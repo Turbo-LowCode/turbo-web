@@ -1,6 +1,7 @@
 export * from './bundle'
 export * from './context'
 export * from './db'
+export * from './logger'
 export * from './material'
 export * from './types'
 export * from './utils'

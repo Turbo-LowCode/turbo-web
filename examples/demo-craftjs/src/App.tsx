@@ -14,7 +14,6 @@ function App() {
 
   useEffect(() => {
     const data = localStorage.getItem('data') ?? ''
-    console.log('🚀 ~ file: App.tsx:17 ~ useEffect ~ data:', JSON.parse(JSON.parse(data)))
     if (data) setJSON(data)
   }, [])
 

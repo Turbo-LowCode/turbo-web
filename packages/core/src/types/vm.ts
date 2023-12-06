@@ -5,8 +5,3 @@ export interface ExecuteResult<T = any> {
   data: T
   error?: any
 }
-
-export interface BrowserRuntimeVMWindow extends Window {
-  __INJECT_VARS__?: InjectVMVarsType
-  eval: typeof window.eval
-}
