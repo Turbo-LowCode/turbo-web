@@ -6,6 +6,19 @@ export const __AntDButton__ = createReactMaterial(
   ButtonView,
   {
     displayName: '按钮',
+    custom: {
+      // 物料支持的event配置项
+      eventOptions: [
+        {
+          label: '点击事件',
+          value: 'onClick',
+        },
+        {
+          label: '修改事件',
+          value: 'onChange',
+        },
+      ],
+    },
     related: {
       settingRender: ButtonSetting,
     },
