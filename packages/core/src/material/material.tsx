@@ -4,7 +4,7 @@ import { cloneDeepWith } from 'lodash'
 import { PropsWithChildren, forwardRef, useMemo } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { useSelector } from 'react-redux'
-import { browserRuntimeVM, isExpression, logger, parseStrToLte } from '..'
+import { browserRuntimeVM, getTurboScopeJsModule, isExpression, logger, parseStrToLte } from '..'
 import { onUpdated, store } from '../context/store'
 
 export type ReactMaterialComponent = UserComponent
@@ -55,6 +55,15 @@ const withConnectNode = (
       return cloneProps
     }, [props, materialStore, id])
 
+    // 为组件添加绑定事件
+    const jsModule = getTurboScopeJsModule()
+    const eventProps: Record<string, any> = useMemo(() => {
+      return __events.reduce((ans: Record<string, any>, item: { event: string; method: string }) => {
+        ans[item.event] = jsModule[item.method]
+        return ans
+      }, {})
+    }, [__events])
+
     // 监听节点是否绑定数据，绑定则上传到StoreProvider中
     useThrottleEffect(() => {
       if (props.$$store && Array.isArray(props.$$store)) {
@@ -77,6 +86,7 @@ const withConnectNode = (
             return connect(drag(dom))
           }}
           {...memoizedProps}
+          {...eventProps}
         >
           {children}
         </WrappedComponent>
