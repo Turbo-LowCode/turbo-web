@@ -59,7 +59,7 @@ const withConnectNode = (
     const jsModule = getTurboScopeJsModule()
     const eventProps: Record<string, any> = useMemo(() => {
       return __events.reduce((ans: Record<string, any>, item: { event: string; method: string }) => {
-        ans[item.event] = jsModule[item.method]
+        if (item.event && item.method) ans[item.event] = jsModule[item.method]
         return ans
       }, {})
     }, [__events])
