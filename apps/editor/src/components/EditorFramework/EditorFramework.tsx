@@ -1,5 +1,12 @@
-import { EditorRefProps, FrameworkContextProvider, FrameworkProviderProps, mountJSModule } from '@turbolc/core'
+import {
+  EditorRefProps,
+  FrameworkContextProvider,
+  FrameworkProviderProps,
+  connectJSRuntimeVM,
+  mountJSModule,
+} from '@turbolc/core'
 import { __antdMaterials__, __baseMaterials__, __commonMaterials__, __formMaterials__ } from '@turbolc/materials'
+import dayjs from 'dayjs'
 import { forwardRef, useEffect } from 'react'
 import { Canvas } from './Canvas/Canvas'
 import { DocumentFrame } from './Canvas/DocumentFrame'
@@ -23,6 +30,22 @@ export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
     useEffect(() => {
       mountJSModule(jsModuleCode)
     }, [jsModuleCode])
+
+    // 初始化js模块默认依赖
+    useEffect(() => {
+      const { sandbox } = connectJSRuntimeVM()
+      sandbox.turboScope.dependencies = {
+        dayjs,
+        '@turbo/store': {
+          getState: () => {
+            console.log('我是get方法')
+          },
+          setState: () => {
+            console.log('我是set方法')
+          },
+        },
+      }
+    }, [])
 
     return (
       <FrameworkContextProvider

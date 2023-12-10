@@ -1,7 +1,7 @@
 import { logger } from '@/utils'
 import { ModalForm, ProCard } from '@ant-design/pro-components'
 import type { OnMount } from '@monaco-editor/react'
-import { compileModuleResolve, transformCode } from '@turbolc/core'
+import { transformCode } from '@turbolc/core'
 import { message } from 'antd'
 import { FC, useRef } from 'react'
 import { CodeEditor } from '../../common/CodeEditor/CodeEditor'
@@ -50,7 +50,6 @@ export const JSEditor: FC<JSEditorProps> = ({ trigger }) => {
 
     const bundleCode = await transformCode(code ?? '')
     logger.info(bundleCode)
-    logger.info(compileModuleResolve(bundleCode ?? ''))
   }
 
   return (

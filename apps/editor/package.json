@@ -13,6 +13,7 @@
     "@turbolc/core": "workspace:*",
     "@turbolc/icons": "workspace:*",
     "@turbolc/materials": "workspace:*",
+    "dayjs": "^1.11.10",
     "react-frame-component": "^5.2.6",
     "uuid": "^9.0.1"
   },

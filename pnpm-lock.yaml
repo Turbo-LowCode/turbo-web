@@ -135,6 +135,9 @@ importers:
       '@turbolc/materials':
         specifier: workspace:*
         version: link:../../packages/materials
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
       react-frame-component:
         specifier: ^5.2.6
         version: 5.2.6(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
