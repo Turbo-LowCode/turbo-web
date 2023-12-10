@@ -9,7 +9,7 @@ export const defaultProps: ImageProps = {
 
 export const ImageView: ReactMaterialViewType<ImageProps> = (props, ref: any) => {
   return (
-    <div ref={ref} style={{ display: 'inline-block' }}>
+    <div ref={ref} className='inline-block'>
       <Image {...props} />
     </div>
   )

@@ -9,7 +9,7 @@ export const defaultProps: TitleProps = {
 
 export const TitleView: ReactMaterialViewType<TitleProps> = (props, ref: any) => {
   return (
-    <div ref={ref} style={{ display: 'inline-block' }}>
+    <div ref={ref} className='inline-block'>
       <Typography.Title {...props} />
     </div>
   )

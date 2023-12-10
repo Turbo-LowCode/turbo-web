@@ -8,7 +8,7 @@ export const defaultProps: TextProps = {
 
 export const TextView: ReactMaterialViewType<TextProps> = (props, ref: any) => {
   return (
-    <div ref={ref} style={{ display: 'inline-block' }}>
+    <div ref={ref} className='inline-block'>
       <Typography.Text {...props} />
     </div>
   )

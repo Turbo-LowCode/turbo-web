@@ -22,6 +22,7 @@ export const RenderViewSandbox: FC<RenderViewSandboxProps> = ({ children }) => {
               href='https://cdn.jsdelivr.net/npm/primereact@10.0.2/resources/themes/lara-light-indigo/theme.css'
               rel='stylesheet'
             />
+            <link href='https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css' rel='stylesheet'></link>
             {`
             .editor-component-active {
               position: relative;
@@ -61,8 +62,8 @@ export const RenderViewSandbox: FC<RenderViewSandboxProps> = ({ children }) => {
               height: 100%;
             }
             `}
-            <script src='https://www.unpkg.com/draggable-polyfill@1.2.4/index.js'></script>
           </style>
+          <script src='https://www.unpkg.com/draggable-polyfill@1.2.4/index.js'></script>
         </>
       }
     >
