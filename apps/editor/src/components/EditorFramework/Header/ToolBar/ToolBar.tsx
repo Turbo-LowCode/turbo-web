@@ -17,13 +17,15 @@ const useStyles = createStyles(({ token }) => ({
 
 export const ToolBar = () => {
   const { styles } = useStyles()
-  const { actions, selectedNodeId, isRootNode } = useEditor(({ events }) => {
+  const { actions, selectedNodeId, isRootNode, query } = useEditor(({ events }) => {
     const [currentNodeId] = events.selected
     return {
       selectedNodeId: currentNodeId,
       isRootNode: currentNodeId === 'ROOT',
     }
   })
+  const canRedo = query.history.canRedo()
+  const canUndo = query.history.canUndo()
 
   // 处理删除选中节点逻辑
   const handleDeleteSelectedNode = () => {
@@ -38,10 +40,18 @@ export const ToolBar = () => {
   return (
     <div className={styles.ToolBar}>
       <Tooltip placement='bottom' color='blue' title='撤销'>
-        <Button icon={<TurboRemixIcon type='icon-arrow-go-back-fill' />} onClick={actions.history.undo} />
+        <Button
+          icon={<TurboRemixIcon type='icon-arrow-go-back-fill' />}
+          onClick={actions.history.undo}
+          disabled={canUndo}
+        />
       </Tooltip>
       <Tooltip placement='bottom' color='blue' title='恢复'>
-        <Button icon={<TurboRemixIcon type='icon-arrow-go-forward-fill' />} onClick={actions.history.redo} />
+        <Button
+          icon={<TurboRemixIcon type='icon-arrow-go-forward-fill' />}
+          onClick={actions.history.redo}
+          disabled={canRedo}
+        />
       </Tooltip>
       <Tooltip placement='bottom' color='blue' title='强制刷新'>
         <Popconfirm
@@ -77,7 +87,7 @@ export const ToolBar = () => {
           danger
           icon={<TurboRemixIcon type='icon-delete-bin-4-line' />}
           onClick={handleDeleteSelectedNode}
-          disabled={isRootNode}
+          disabled={isRootNode || !selectedNodeId}
         />
       </Tooltip>
     </div>
