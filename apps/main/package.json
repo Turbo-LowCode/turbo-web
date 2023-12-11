@@ -12,7 +12,8 @@
   "dependencies": {
     "@turbolc/core": "workspace:*",
     "@turbolc/icons": "workspace:*",
-    "@turbolc/materials": "workspace:*"
+    "@turbolc/materials": "workspace:*",
+    "wujie-react": "^1.0.21"
   },
   "devDependencies": {
     "@turbolc/eslint-config": "workspace:*",

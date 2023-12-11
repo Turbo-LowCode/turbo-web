@@ -163,6 +163,9 @@ importers:
       '@turbolc/materials':
         specifier: workspace:*
         version: link:../../packages/materials
+      wujie-react:
+        specifier: ^1.0.21
+        version: 1.0.21(react@18.2.0)
     devDependencies:
       '@turbolc/eslint-config':
         specifier: workspace:*
@@ -12099,6 +12102,22 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
+
+  /wujie-react@1.0.21(react@18.2.0):
+    resolution: {integrity: sha512-7VFZF4BgUWUz7503QwCglFY3TSE6podq2rasKrllc4OT06MoF8TzANU9qN/6NANyZbbkORiSPAhpvQYBJkMR5w==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+      wujie: 1.0.21
+    dev: false
+
+  /wujie@1.0.21:
+    resolution: {integrity: sha512-MTTFsjIT2dI/WLNczyUB50oLrWNuaPiWJiqC/xhMq67Ff2smcBtiBW3pKqzJxrHbefa1C8YsP3wtqar/+YckzQ==}
+    dependencies:
+      '@babel/runtime': 7.23.4
+    dev: false
 
   /xtend@2.1.2:
     resolution: {integrity: sha512-vMNKzr2rHP9Dp/e1NQFnLQlwlhp9L/LfvnsVdHxN1f+uggyVI3i08uD14GPvCToPkdsRfyPqIyYGmIk58V98ZQ==}
