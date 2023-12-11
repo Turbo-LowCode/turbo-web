@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 主题自适应暂时去掉 */
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+} */
+
+html,
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 滚动条 */
+/*水平滚动条的样式*/
+::-webkit-scrollbar-thumb:horizontal {
+  width: 4px;
+  background-color: #cccccc;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff; /*滚动条的背景颜色*/
+  border-radius: 0; /*滚动条的圆角宽度*/
+}
+
+::-webkit-scrollbar {
+  width: 10px; /*滚动条的宽度*/
+  height: 8px; /*滚动条的高度*/
+}
+
+/*垂直滚动条的样式*/
+::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: #cccccc;
+  border-radius: 4px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border: 2px solid #fff;
+}
+
+/*滚动条的hover样式*/
+::-webkit-scrollbar-thumb:hover {
+  height: 50px;
+  background-color: #9f9f9f;
+  border-radius: 4px;
+}

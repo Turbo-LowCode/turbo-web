@@ -152,6 +152,28 @@ importers:
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
+  apps/main:
+    dependencies:
+      '@turbolc/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@turbolc/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@turbolc/materials':
+        specifier: workspace:*
+        version: link:../../packages/materials
+      uuid:
+        specifier: ^9.0.1
+        version: 9.0.1
+    devDependencies:
+      '@turbolc/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@turbolc/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+
   examples/demo-craftjs:
     dependencies:
       '@turbolc/core':

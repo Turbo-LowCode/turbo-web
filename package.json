@@ -6,8 +6,9 @@
   "scripts": {
     "demo:craftjs": "turbo dev --filter=demo-craftjs",
     "dev:editor": "turbo dev --filter=@turbolc/editor",
-    "start:main": "turbo run start --filter=main",
     "start:editor": "turbo run start --filter=editor",
+    "dev:main": "turbo dev --filter=@turbolc/main",
+    "start:main": "turbo run start --filter=main",
     "start:build": "turbo run build --filter=main",
     "build:editor": "turbo run build --filter=editor",
     "lint": "turbo lint",

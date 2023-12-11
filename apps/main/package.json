@@ -1,0 +1,21 @@
+{
+  "name": "@turbolc/main",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "biome format . --write"
+  },
+  "dependencies": {
+    "@turbolc/core": "workspace:*",
+    "@turbolc/icons": "workspace:*",
+    "@turbolc/materials": "workspace:*"
+  },
+  "devDependencies": {
+    "@turbolc/eslint-config": "workspace:*",
+    "@turbolc/typescript-config": "workspace:*"
+  }
+}
