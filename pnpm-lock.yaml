@@ -163,9 +163,6 @@ importers:
       '@turbolc/materials':
         specifier: workspace:*
         version: link:../../packages/materials
-      uuid:
-        specifier: ^9.0.1
-        version: 9.0.1
     devDependencies:
       '@turbolc/eslint-config':
         specifier: workspace:*

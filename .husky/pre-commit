@@ -5,4 +5,4 @@ echo ''
 echo -e "\e[0;32m ******* pre-commit 钩子触发 **************\e[0m"
 echo ''
 
-node "C:/Users/Fan Jin/Desktop/Github/Turbo-LowCode/turbo-web/packages/lint/runLintStaged.mjs"
+node "D:/Study/Programming/Github/Turbo-LowCode/turbo-web/packages/lint/runLintStaged.mjs"

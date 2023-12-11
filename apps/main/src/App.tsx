@@ -1,3 +1,6 @@
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router'
+
 export const App = () => {
-  return <div className='h-[5000px]'>main</div>
+  return <RouterProvider router={router} />
 }
