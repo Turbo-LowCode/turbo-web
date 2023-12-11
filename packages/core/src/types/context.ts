@@ -1,6 +1,7 @@
-import { Editor } from '@craftjs/core'
+import { Options } from '@craftjs/core'
+import { PropsWithChildren } from 'react'
 
-export type EditorProps = React.ComponentProps<typeof Editor>
+export type EditorProps = PropsWithChildren<Partial<Options>>
 
 export type FrameworkProviderProps = Pick<EditorProps, 'enabled'>
 
