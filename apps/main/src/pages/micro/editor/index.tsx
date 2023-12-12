@@ -1,6 +1,6 @@
 import WujieReact from 'wujie-react'
 
-const MicroApp = () => {
+const MicroAppEditor = () => {
   return (
     <div className='w-screen h-screen'>
       <WujieReact width='100%' height='100%' name='editor' url='http://localhost:8080/' sync={true} fetch={fetch} />
@@ -8,4 +8,4 @@ const MicroApp = () => {
   )
 }
 
-export default MicroApp
+export default MicroAppEditor

@@ -3,6 +3,19 @@ import { Card, Row, Col, Pagination } from 'antd'
 import { AppCard } from './AppCard'
 import { Header } from './Header'
 
+const appIds = [
+  '43ae5e13-3bab-41dd-bcbc-4dc5b616af51',
+  '93517298-1515-468b-a00d-e6ad7272cba0',
+  '6570dbf6-1093-495c-b0bc-7da8c193a515',
+  '8502f130-8a1f-4741-93e1-26301c134a72',
+  'edaf7f49-2867-4fec-90c5-063c02a05a26',
+  'be5e0283-5176-4495-a627-00f6ed952990',
+  'fc84f9b5-cab8-447c-a131-e89d49e9e370',
+  '704b273f-7d04-4176-a399-0f32651f9f6b',
+  '9ba347e4-c519-416a-98d4-66dd8ab9fcb2',
+  '2749eb45-5c04-4f1e-b5b4-4a1810a86b2b',
+]
+
 const List = () => {
   return (
     <div className='w-full h-full grid grid-rows-[auto_auto_1fr] gap-4'>
@@ -25,9 +38,9 @@ const List = () => {
         <div className='h-full grid grid-rows-[1fr_50px]'>
           <div>
             <Row className='overflow-auto' gutter={[12, 12]}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 122].map(key => (
+              {appIds.map(key => (
                 <Col key={key} xxl={6} lg={8} md={8} xs={12}>
-                  <AppCard />
+                  <AppCard appId={key} />
                 </Col>
               ))}
             </Row>

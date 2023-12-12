@@ -2,6 +2,7 @@ import { Avatar, Button, Card, ConfigProvider, Dropdown, Popconfirm } from 'antd
 import { DeleteOutlined, BranchesOutlined, EditOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 import CardImg from '@/assets/card.jpg'
+import { FC } from 'react'
 
 const items = [
   {
@@ -18,7 +19,11 @@ const items = [
   },
 ]
 
-export const AppCard = () => {
+interface AppCardProps {
+  appId: string
+}
+
+export const AppCard: FC<AppCardProps> = ({ appId }) => {
   const navigate = useNavigate()
 
   return (
@@ -36,6 +41,8 @@ export const AppCard = () => {
         <Card
           size='small'
           className='cursor-pointer transition-all duration-700 hover:border-[1px] hover:border-[#1677ff]'
+          // cover={<img src={CardImg} alt='cover' />}
+          onClick={() => navigate(`/app/editor/${appId}`)}
           actions={[
             <Button
               key='edit'

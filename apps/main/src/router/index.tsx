@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 const Login = lazy(() => import('@/pages/login'))
 const Home = lazy(() => import('@/pages/home'))
-const MicroApp = lazy(() => import('@/pages/micro'))
+const MicroAppEditor = lazy(() => import('@/pages/micro/editor'))
 const ProjectApp = lazy(() => import('@/pages/project/app/list'))
 const ProjectAppManage = lazy(() => import('@/pages/project/app/manage'))
 
@@ -35,8 +35,8 @@ export const router = createBrowserRouter([
     path: '/app',
     children: [
       {
-        path: 'editor',
-        Component: MicroApp,
+        path: 'editor/:appId',
+        Component: MicroAppEditor,
       },
     ],
   },
