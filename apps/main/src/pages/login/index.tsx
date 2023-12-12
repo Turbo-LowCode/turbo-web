@@ -1,5 +1,5 @@
-import { Content } from './content'
-import { Header } from './header'
+import { Content } from './Content'
+import { Header } from './Header'
 
 const LoginPage = () => {
   return (
