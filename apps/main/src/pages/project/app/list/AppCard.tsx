@@ -40,9 +40,8 @@ export const AppCard: FC<AppCardProps> = ({ appId }) => {
       <Dropdown menu={{ items }} trigger={['contextMenu']}>
         <Card
           size='small'
-          className='cursor-pointer transition-all duration-700 hover:border-[1px] hover:border-[#1677ff]'
+          className='transition-all duration-700 hover:border-[1px] hover:border-[#1677ff]'
           // cover={<img src={CardImg} alt='cover' />}
-          onClick={() => navigate(`/app/editor/${appId}`)}
           actions={[
             <Button
               key='edit'
@@ -71,9 +70,11 @@ export const AppCard: FC<AppCardProps> = ({ appId }) => {
           ]}
         >
           <Card.Meta
+            className='cursor-pointer select-none'
             avatar={<Avatar shape='square' size='large' src={CardImg} />}
             title='测试工程'
             description='这是一个提供给营销系统使用的测试工程，用于测试不同营销场景下的效果'
+            onClick={() => navigate(`/app/editor/${appId}`)}
           />
         </Card>
       </Dropdown>
