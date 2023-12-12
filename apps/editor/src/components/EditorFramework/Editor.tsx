@@ -28,7 +28,7 @@ export const Editor: FC<EditorProps> = ({ isPreview }) => {
 
   // 初始化js模块
   useEffect(() => {
-    mountJSModule(jsModuleCode)
+    if (jsModuleCode) mountJSModule(jsModuleCode)
   }, [jsModuleCode])
 
   // 初始化js模块默认依赖
