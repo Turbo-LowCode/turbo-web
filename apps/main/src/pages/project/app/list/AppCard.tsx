@@ -74,7 +74,10 @@ export const AppCard: FC<AppCardProps> = ({ appId }) => {
             avatar={<Avatar shape='square' size='large' src={CardImg} />}
             title='测试工程'
             description='这是一个提供给营销系统使用的测试工程，用于测试不同营销场景下的效果'
-            onClick={() => navigate(`/app/editor/${appId}`)}
+            onClick={() => {
+              navigate(`/app/editor/${appId}`)
+              localStorage.setItem('appId', appId)
+            }}
           />
         </Card>
       </Dropdown>

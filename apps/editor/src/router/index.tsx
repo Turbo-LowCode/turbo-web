@@ -1,6 +1,8 @@
-import { Editor } from '@/pages'
-import { Preview } from '@/pages/preview'
+import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
+
+const Editor = lazy(() => import('@/pages/editor'))
+const Preview = lazy(() => import('@/pages/preview'))
 
 const router = createBrowserRouter([
   {

@@ -1,9 +1,10 @@
-import { Alert, Divider, Typography } from 'antd'
+import { logger } from '@/utils'
+import { useEditor } from '@craftjs/core'
+import { Alert, Button, Divider, Typography, message } from 'antd'
 import { createStyles } from 'antd-style'
+import { v4 as uuid } from 'uuid'
 import { ConfigSettings } from '../common/settings/ConfigSetting'
 import { AppMenu } from './AppMenu'
-import { Preview } from './ToolBar/Preview'
-import { Publish } from './ToolBar/Publish'
 import { ToolBar } from './ToolBar/ToolBar'
 
 const useStyles = createStyles(({ token }) => ({
@@ -18,6 +19,33 @@ const useStyles = createStyles(({ token }) => ({
 
 export const Header = () => {
   const { styles } = useStyles()
+  const { query } = useEditor()
+
+  const handleSave = () => {
+    try {
+      const schema = query.serialize()
+      const appId = localStorage.getItem('appId')
+      localStorage.setItem(`${appId}_schema`, schema)
+      logger.info(`${appId}_schema`, schema)
+      message.success('保存成功')
+    } catch (error) {
+      logger.error(error)
+      message.error('哎呀，系统发生错误了，请查看控制台')
+    }
+  }
+
+  const handlePreview = () => {
+    try {
+      const schema = query.serialize()
+      const pageId = uuid()
+      sessionStorage.setItem(pageId, schema)
+      logger.info(pageId, schema)
+      window.open(`/preview/${pageId}`)
+    } catch (error) {
+      logger.error(error)
+      message.error('哎呀，系统发生错误了，请查看控制台')
+    }
+  }
 
   return (
     <header>
@@ -52,8 +80,13 @@ export const Header = () => {
         <ToolBar />
         <div className='flex items-center justify-end gap-3'>
           <ConfigSettings />
-          <Preview />
-          <Publish />
+          <Button type='dashed' onClick={handleSave}>
+            保存
+          </Button>
+          <Button type='dashed' onClick={handlePreview}>
+            预览
+          </Button>
+          <Button type='dashed'>发布</Button>
         </div>
       </div>
     </header>
