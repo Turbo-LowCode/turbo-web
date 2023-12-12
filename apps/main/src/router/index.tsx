@@ -1,4 +1,4 @@
-// import { OutletLayout } from '@/layouts'
+import { OutletLayout } from '@/components/layouts'
 import { lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const ProjectAppManage = lazy(() => import('@/pages/project/app/manage'))
 
 export const router = createBrowserRouter([
   {
-    // Component: OutletLayout,
+    Component: OutletLayout,
     children: [
       {
         path: '/',
