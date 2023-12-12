@@ -2,23 +2,22 @@ import { EditorFramework } from '@/components/EditorFramework/EditorFramework'
 import { EditorRefProps } from '@turbolc/core'
 import { Result } from 'antd'
 import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
 
 const Preview = () => {
   const editorFrameworkRef = useRef<EditorRefProps>(null)
-  const { pageId } = useParams()
   const [isExist, setIsExist] = useState(true)
 
   useEffect(() => {
-    if (pageId) {
-      const schema = sessionStorage.getItem(pageId)
+    const appId = localStorage.getItem('appId')
+    if (appId) {
+      const schema = localStorage.getItem(`${appId}_schema`)
       if (editorFrameworkRef?.current && schema) {
         editorFrameworkRef.current.loadEditorSchema(schema)
       } else {
         setIsExist(false)
       }
     }
-  }, [editorFrameworkRef])
+  }, [])
 
   return isExist ? (
     <EditorFramework ref={editorFrameworkRef} isPreview />

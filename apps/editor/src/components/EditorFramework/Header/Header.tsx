@@ -2,7 +2,7 @@ import { logger } from '@/utils'
 import { useEditor } from '@craftjs/core'
 import { Alert, Button, Divider, Typography, message } from 'antd'
 import { createStyles } from 'antd-style'
-import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom'
 import { ConfigSettings } from '../common/settings/ConfigSetting'
 import { AppMenu } from './AppMenu'
 import { ToolBar } from './ToolBar/ToolBar'
@@ -20,6 +20,7 @@ const useStyles = createStyles(({ token }) => ({
 export const Header = () => {
   const { styles } = useStyles()
   const { query } = useEditor()
+  const navigate = useNavigate()
 
   const handleSave = () => {
     try {
@@ -37,10 +38,11 @@ export const Header = () => {
   const handlePreview = () => {
     try {
       const schema = query.serialize()
-      const pageId = uuid()
-      sessionStorage.setItem(pageId, schema)
-      logger.info(pageId, schema)
-      window.open(`/preview/${pageId}`)
+      const appId = localStorage.getItem('appId')
+      localStorage.setItem(`${appId}_schema`, schema)
+      logger.info(`${appId}_schema`, schema)
+      // window.open(`/app/editor/${appId}/preview`)
+      navigate('/preview')
     } catch (error) {
       logger.error(error)
       message.error('哎呀，系统发生错误了，请查看控制台')

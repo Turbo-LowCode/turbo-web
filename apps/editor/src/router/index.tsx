@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     Component: Editor,
   },
   {
-    path: '/preview/:pageId',
+    path: '/preview',
     Component: Preview,
   },
 ])
