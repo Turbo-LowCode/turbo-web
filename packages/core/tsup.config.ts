@@ -1,18 +1,21 @@
 import { defineConfig } from 'tsup'
 
 const externalPackages = [
+  '@ant-design/icons',
+  '@ant-design/pro-components',
   '@craftjs/core',
+  '@reduxjs/toolkit',
+  'ahooks',
+  'antd',
+  'antd-style',
+  'immer',
+  'lodash',
+  'monaco-editor',
   'react',
   'react-dom',
-  'antd',
-  '@ant-design/icons',
-  '@emotion/css',
-  'redux',
-  '@reduxjs/toolkit',
+  'react-monaco-editor',
   'react-redux',
-  'ahooks',
   'zustand',
-  'lodash',
 ]
 
 export default defineConfig(options => ({
@@ -21,7 +24,7 @@ export default defineConfig(options => ({
   splitting: false,
   sourcemap: false,
   clean: true,
-  format: ['esm', 'cjs'],
+  format: ['esm'],
   external: externalPackages,
   dts: true,
 }))
