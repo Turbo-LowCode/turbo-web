@@ -28,6 +28,8 @@ const FallbackRender = (props: any) => {
   )
 }
 
+const emptyMaterialStore = {}
+
 /**
  * 将UI组件包裹成可拖拽的Node节点
  * @param { React.FunctionComponent } WrappedComponent 设计组件
@@ -36,7 +38,10 @@ const withConnectNode = (
   WrappedComponent: React.ForwardRefExoticComponent<React.RefAttributes<any> & PropsWithChildren>,
 ): ReactMaterialComponent => {
   return ({ children, __events = [], ...props }: Record<string, any>) => {
-    const materialStore: any = useSelector(state => state)
+    const materialStore: any = useSelector(state => {
+      // 消除redux警告每次都会重新渲染
+      return state?.editor ?? emptyMaterialStore
+    })
     const {
       id,
       custom,
@@ -69,10 +74,12 @@ const withConnectNode = (
       if (props.$$store && Array.isArray(props.$$store)) {
         store.dispatch(
           onUpdated({
-            [id]: props.$$store.reduce((ans, item) => {
-              ans[item.name] = item.defaultVal
-              return ans
-            }, {}),
+            editor: {
+              [id]: props.$$store.reduce((ans, item) => {
+                ans[item.name] = item.defaultVal
+                return ans
+              }, {}),
+            },
           }),
         )
       }
