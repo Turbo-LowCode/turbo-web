@@ -3,8 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
+    "dev": "tsup --watch",
     "start": "tsup --watch",
     "build": "tsup",
     "lint": "biome format . --write"

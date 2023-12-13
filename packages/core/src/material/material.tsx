@@ -40,6 +40,7 @@ const withConnectNode = (
   return ({ children, __events = [], ...props }: Record<string, any>) => {
     const materialStore: any = useSelector(state => {
       // 消除redux警告每次都会重新渲染
+      // @ts-ignore
       return state?.editor ?? emptyMaterialStore
     })
     const {

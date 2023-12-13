@@ -25,7 +25,7 @@ class BrowserRuntimeVM {
   private executeCode(code: string, globalScope: InjectVMVarsType) {
     if (!this.iframe) this.createIFrame()
 
-    const sandbox = this.iframe.contentWindow as BrowserRuntimeVMWindow
+    const sandbox = this.iframe?.contentWindow as BrowserRuntimeVMWindow
     sandbox.__INJECT_VARS__ = globalScope
 
     // eval 创造一个沙盒环境去执行代码
