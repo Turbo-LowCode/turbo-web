@@ -6,12 +6,9 @@
   "scripts": {
     "demo:craftjs": "turbo dev --filter=demo-craftjs",
     "dev:editor": "turbo dev --filter=@turbolc/editor",
-    "start:editor": "turbo run start --filter=@turbolc/editor",
-    "start": "turbo run start",
     "dev:main": "turbo dev --filter=@turbolc/main",
-    "start:main": "turbo run start --filter=@turbolc/main",
-    "start:build": "turbo run build --filter=main",
-    "build:editor": "turbo run build --filter @turbolc/editor",
+    "start:editor": "turbo run start --parallel --filter=@turbolc/editor...",
+    "start:main": "turbo run start --parallel --filter=@turbolc/main",
     "lint": "turbo lint",
     "lint:check": "biome format .",
     "lint:format": "biome format . --write"
