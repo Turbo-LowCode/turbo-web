@@ -11,5 +11,3 @@ export const parseStrToLte = (code: string) => {
   const result = code.replace(/\{\{(.+?)\}\}/g, '${$1}')
   return `\`${result}\``
 }
-
-console.log(parseStrToLte('props: {{props.code}}'))

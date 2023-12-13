@@ -28,7 +28,7 @@ const useStyles = createStyles(({ token }) => ({
 const SidebarItem: FC<SidebarItemProps> = ({ active, tooltip, ...props }) => {
   return (
     <Tooltip placement='right' title={tooltip}>
-      <Button {...props} ghost type={active ? 'primary' : 'text'} />
+      <Button {...props} type={active ? 'primary' : 'text'} />
     </Tooltip>
   )
 }
