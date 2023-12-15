@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -31,7 +29,6 @@
   },
   "dependencies": {
     "@turbolc/core": "workspace:*",
-    "@turbolc/setter": "workspace:*",
-    "re-resizable": "^6.9.11"
+    "@turbolc/setter": "workspace:*"
   }
 }

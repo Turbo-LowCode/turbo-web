@@ -36,7 +36,7 @@ const gitFolder = findNearestGit(__dirname)
 if (!gitFolder) throw new Error('🚀 ~ biome failed! please fix and retry!')
 
 lintStaged({
-  config: { '*.{js,ts,jsx,tsx,json,css,md}': `biome format --write ${gitFolder}\\.` },
+  config: { '*.{js,ts,jsx,tsx,json,css,md}': `biome format --write "${gitFolder}\\."` },
 }).then(res => {
   if (res) {
     console.log('🚀 ~ set lintStaged successfully!')
