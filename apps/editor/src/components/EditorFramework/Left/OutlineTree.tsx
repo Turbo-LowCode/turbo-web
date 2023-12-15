@@ -1,8 +1,9 @@
 import { CheckOutlined, ClearOutlined, SearchOutlined } from '@ant-design/icons'
-import { SerializedNodes } from '@craftjs/core'
+import { SerializedNodes, useEditor } from '@craftjs/core'
 import { useDebounceEffect } from 'ahooks'
 import { Button, Flex, Input, Space, Tree } from 'antd'
 import { DataNode } from 'antd/es/tree'
+import { TreeProps } from 'antd/lib'
 import { useState } from 'react'
 import { useSchemaStore } from '../stores/schema'
 
@@ -31,6 +32,13 @@ const convertToTree = (data: SerializedNodes): DataNode[] => {
 export const OutlineTree = () => {
   const { serializeNodes } = useSchemaStore()
   const [treeData, setTreeData] = useState<DataNode[]>([])
+  const { actions } = useEditor()
+
+  const handleNodeSelect: TreeProps['onSelect'] = selectedKeys => {
+    if (selectedKeys.length > 0) {
+      actions.selectNode(selectedKeys as string[])
+    }
+  }
 
   useDebounceEffect(() => {
     if (serializeNodes) {
@@ -47,7 +55,13 @@ export const OutlineTree = () => {
           <Button ghost size='small' type='primary' icon={<ClearOutlined />} />
         </Space>
       </Flex>
-      <Tree showLine={{ showLeafIcon: <CheckOutlined /> }} defaultExpandAll treeData={treeData} blockNode />
+      <Tree
+        showLine={{ showLeafIcon: <CheckOutlined /> }}
+        defaultExpandAll
+        treeData={treeData}
+        blockNode
+        onSelect={handleNodeSelect}
+      />
     </Flex>
   )
 }
