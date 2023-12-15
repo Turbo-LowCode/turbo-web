@@ -1,4 +1,8 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["antd", "turbolc"]
+  "cSpell.words": ["antd", "turbolc"],
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  }
 }
