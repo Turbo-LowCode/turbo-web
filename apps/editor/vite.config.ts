@@ -3,16 +3,23 @@ import path from 'path'
 import { defineConfig } from 'vite'
 
 const externalPackages = [
+  '@ant-design/icons',
+  '@ant-design/pro-components',
   '@craftjs/core',
+  '@reduxjs/toolkit',
+  'ahooks',
+  'antd',
+  'antd-style',
+  'immer',
+  'lodash',
+  'monaco-editor',
   'react',
   'react-dom',
-  'antd',
-  '@ant-design/icons',
-  '@emotion/css',
-  'redux',
-  '@reduxjs/toolkit',
+  'react-monaco-editor',
   'react-redux',
-  'ahooks',
+  'zustand',
+  'i18next',
+  'react-i18next',
 ]
 
 // https://vitejs.dev/config/

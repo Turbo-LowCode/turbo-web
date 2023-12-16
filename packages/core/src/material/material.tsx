@@ -3,6 +3,7 @@ import { useThrottleEffect } from 'ahooks'
 import { cloneDeepWith } from 'lodash'
 import { PropsWithChildren, forwardRef, useMemo } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { browserRuntimeVM, getTurboScopeJsModule, isExpression, logger, parseStrToLte } from '..'
 import { onUpdated, store } from '../context/store'
@@ -38,6 +39,7 @@ const withConnectNode = (
   WrappedComponent: React.ForwardRefExoticComponent<React.RefAttributes<any> & PropsWithChildren>,
 ): ReactMaterialComponent => {
   return ({ children, __events = [], ...props }: Record<string, any>) => {
+    const { t } = useTranslation()
     const materialStore: any = useSelector(state => {
       // 消除redux警告每次都会重新渲染
       // @ts-ignore
@@ -51,11 +53,12 @@ const withConnectNode = (
       custom: state.data.custom,
     }))
 
+    // 属性以及表达式转换
     const memoizedProps = useMemo(() => {
       const cloneProps = cloneDeepWith(props, val => {
         if (val && isExpression(val)) {
           logger.info('执行代码:', val)
-          return browserRuntimeVM?.execute(parseStrToLte(val), { props, store: materialStore?.[id] })?.data
+          return browserRuntimeVM?.execute(parseStrToLte(val), { props, store: materialStore?.[id], t })?.data
         }
       })
       return cloneProps

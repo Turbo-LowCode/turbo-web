@@ -16,6 +16,8 @@ const externalPackages = [
   'react-monaco-editor',
   'react-redux',
   'zustand',
+  'i18next',
+  'react-i18next',
 ]
 
 export default defineConfig(options => ({
