@@ -3,6 +3,7 @@ import { useEditor } from '@craftjs/core'
 import { TurboRemixIcon } from '@turbolc/icons'
 import { Button, Popconfirm, Tooltip, message } from 'antd'
 import { createStyles } from 'antd-style'
+import { useEffect } from 'react'
 import { JSEditor } from './JSEditor'
 
 const useStyles = createStyles(({ token }) => ({
@@ -36,6 +37,19 @@ export const ToolBar = () => {
       message.error('删除失败')
     }
   }
+
+  // 添加撤销和恢复快捷键
+  useEffect(() => {
+    window.addEventListener('keypress', e => {
+      if (e.ctrlKey && e.code === 'KeyZ') {
+        actions.history.undo()
+      } else if (e.ctrlKey && e.code === 'KeyY') {
+        actions.history.redo()
+      }
+
+      return false
+    })
+  })
 
   return (
     <div className={styles.ToolBar}>

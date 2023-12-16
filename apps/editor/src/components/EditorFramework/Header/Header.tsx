@@ -1,5 +1,7 @@
 import { logger } from '@/utils'
+import { CaretRightOutlined, SaveOutlined, ThunderboltFilled } from '@ant-design/icons'
 import { useEditor } from '@craftjs/core'
+import { addHistoryRecord } from '@turbolc/core'
 import { Alert, Button, Divider, Typography, message } from 'antd'
 import { createStyles } from 'antd-style'
 import { useNavigate } from 'react-router-dom'
@@ -27,6 +29,12 @@ export const Header = () => {
       const schema = query.serialize()
       const appId = localStorage.getItem('appId')
       localStorage.setItem(`${appId}_schema`, schema)
+      addHistoryRecord({
+        id: Date.now(),
+        user: 'test',
+        pageSchema: schema,
+        createTime: new Date().toLocaleString(),
+      })
       logger.info(`${appId}_schema`, schema)
       message.success('保存成功')
     } catch (error) {
@@ -82,13 +90,15 @@ export const Header = () => {
         <ToolBar />
         <div className='flex items-center justify-end gap-3'>
           <ConfigSettings />
-          <Button type='dashed' onClick={handleSave}>
+          <Button type='dashed' icon={<SaveOutlined />} onClick={handleSave}>
             保存
           </Button>
-          <Button type='dashed' onClick={handlePreview}>
+          <Button type='dashed' icon={<CaretRightOutlined />} onClick={handlePreview}>
             预览
           </Button>
-          <Button type='dashed'>发布</Button>
+          <Button type='primary' icon={<ThunderboltFilled />}>
+            发布
+          </Button>
         </div>
       </div>
     </header>

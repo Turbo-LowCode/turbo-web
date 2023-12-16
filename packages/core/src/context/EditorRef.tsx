@@ -1,6 +1,7 @@
 import { EditorRefProps } from '@/types'
 import { useEditor } from '@craftjs/core'
 import { forwardRef, useEffect, useImperativeHandle } from 'react'
+import { logger } from '..'
 import { addHistoryRecord } from '../db'
 
 export const EditorRef = forwardRef<EditorRefProps>((_, ref) => {
@@ -16,7 +17,7 @@ export const EditorRef = forwardRef<EditorRefProps>((_, ref) => {
         pageSchema: schema,
         createTime: new Date().toLocaleString(),
       })
-      console.log('auto save editor schema')
+      logger.info('auto save editor schema')
     }
 
     const timer = setInterval(autoSaveEditorSchema, 5 * 60 * 1000)
