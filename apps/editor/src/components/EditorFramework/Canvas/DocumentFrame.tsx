@@ -7,7 +7,11 @@ export const DocumentFrame = () => {
   const { actions } = useEditor()
 
   useEffect(() => {
-    const appId = localStorage.getItem('appId')
+    const appId = localStorage.getItem('appId') ?? 'test'
+    // 设置一个兜底的appId
+    if (appId === 'test') {
+      localStorage.setItem('appId', 'test')
+    }
     if (appId) {
       const schema = localStorage.getItem(`${appId}_schema`)
       if (schema) {
