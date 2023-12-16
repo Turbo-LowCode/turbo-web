@@ -10,7 +10,7 @@
     "start:editor": "turbo run start --parallel --filter=@turbolc/editor...",
     "start:main": "turbo run start --parallel --filter=@turbolc/main",
     "start": "turbo run start --parallel --filter=@turbolc/main --filter=@turbolc/editor...",
-    "build": "turbo run build --parallel --filter=@turbolc/main --filter=@turbolc/editor...",
+    "build": "turbo run build --filter=@turbolc/core --filter=@turbolc/icons --filter=@turbolc/setter && turbo run build --filter=@turbolc/materials && turbo run build --filter=@turbolc/editor",
     "lint": "turbo lint",
     "lint:check": "biome format .",
     "lint:format": "biome format . --write"
