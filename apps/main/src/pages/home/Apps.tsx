@@ -1,7 +1,4 @@
-import { StatisticCard } from '@ant-design/pro-components'
 import { Card } from 'antd'
-
-const { Statistic } = StatisticCard
 
 const items = [
   { key: '1', title: '全部', value: 10, total: true },

@@ -1,8 +1,8 @@
-import { Avatar, Button, Card, ConfigProvider, Dropdown, Popconfirm } from 'antd'
-import { DeleteOutlined, BranchesOutlined, EditOutlined } from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom'
 import CardImg from '@/assets/card.jpg'
+import { BranchesOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import { Avatar, Button, Card, ConfigProvider, Dropdown, Popconfirm } from 'antd'
 import { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const items = [
   {
@@ -74,6 +74,7 @@ export const AppCard: FC<AppCardProps> = ({ appId }) => {
             avatar={<Avatar shape='square' size='large' src={CardImg} />}
             title='测试工程'
             description='这是一个提供给营销系统使用的测试工程，用于测试不同营销场景下的效果'
+            // @ts-ignore
             onClick={() => {
               navigate(`/app/editor/${appId}`)
               localStorage.setItem('appId', appId)
