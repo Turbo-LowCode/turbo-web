@@ -1,7 +1,6 @@
 import type { ProColumns } from '@ant-design/pro-components'
 import { EditableProTable } from '@ant-design/pro-components'
-import { useThrottleEffect } from 'ahooks'
-import { Button, Typography } from 'antd'
+import { Button } from 'antd'
 import React, { FC, Key, useState } from 'react'
 
 export interface LocaleDataRecordType {

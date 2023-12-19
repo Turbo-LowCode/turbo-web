@@ -1,5 +1,5 @@
 import { toOptions } from '@/utils'
-import { ProCard, ProForm, ProFormItem, ProFormList } from '@ant-design/pro-components'
+import { ProCard, ProForm, ProFormItem, ProFormList, ProFormProps } from '@ant-design/pro-components'
 import { useEditor } from '@craftjs/core'
 import { getTurboScopeJsModule } from '@turbolc/core'
 import { AutoComplete } from 'antd'
@@ -35,7 +35,7 @@ export const Events = () => {
     setMethodOptions(toOptions(optionKeys))
   }
 
-  const handleBindEventChange = (_, values: Record<string, any>) => {
+  const handleBindEventChange: ProFormProps['onValuesChange'] = (_, values) => {
     setProp(nodeId, props => {
       props.__events = values.events
     })

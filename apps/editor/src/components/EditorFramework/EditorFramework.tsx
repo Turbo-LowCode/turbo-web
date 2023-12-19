@@ -1,7 +1,9 @@
+import i18n from '@/utils/i18n'
 import { Options } from '@craftjs/core'
 import { EditorRefProps, FrameworkContextProvider, FrameworkProviderProps } from '@turbolc/core'
 import { __antdMaterials__, __baseMaterials__, __commonMaterials__, __formMaterials__ } from '@turbolc/materials'
 import { forwardRef } from 'react'
+import { I18nextProvider } from 'react-i18next'
 import { Editor } from './Editor'
 import { RenderNodeWrapper } from './RenderNodeWrapper'
 import { useSchemaStore } from './stores/schema'
@@ -32,7 +34,9 @@ export const EditorFramework = forwardRef<EditorRefProps, FrameworkProps>(
         }}
         onNodesChange={handleEditorChange}
       >
-        <Editor isPreview={isPreview} />
+        <I18nextProvider i18n={i18n}>
+          <Editor isPreview={isPreview} />
+        </I18nextProvider>
       </FrameworkContextProvider>
     )
   },

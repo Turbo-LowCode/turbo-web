@@ -23,6 +23,7 @@ export const Editor: FC<EditorProps> = ({ isPreview }) => {
   })
 
   useEffect(() => {
+    // @ts-ignore
     window.__nodeId__ = nodeId
   }, [nodeId])
 
@@ -47,6 +48,7 @@ export const Editor: FC<EditorProps> = ({ isPreview }) => {
       // 透传一些改变物料的方法
       '@turbolc/materials': {
         setProp: (cb: (props: any) => void) => {
+          // @ts-ignore
           actions.setProp(window.__nodeId__, cb)
         },
       },
